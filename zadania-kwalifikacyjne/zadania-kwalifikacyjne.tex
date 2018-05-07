@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[bottom]{footmisc}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+
+\newcounter{itemnum}
+\newenvironment{prob}
+{\stepcounter{itemnum}
+\paragraph*{\arabic{itemnum}.}}
+{}
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Id}{\text{Id}}
+
+\begin{document}
+\section{Wstęp}
+  Celem tych zadań jest oswojenie Cię z podstawowymi pojęciami teorii kategorii. Nie musisz zrobić wszystkich, jednak szczególnie do tego zachęcamy - warsztaty będą polegać głównie na rozwiązywaniu zadań przy tablicy.
+
+  Żadna dodatkowa literatura nie powinna być potrzebna do rozwiązania tych zadań, jednak w razie problemów z zadaniami, sugestii zmian lub chęci zobaczenia określonych kategorii na warsztatach, zachęcamy do kontaktu.
+
+\section{Kategorie}
+\emph{Kategorią} nazywamy kolekcję\footnote{Można myśleć o tym jak o zbiorze, do którego można włożyć dowolnie dużo elementów. Zainteresowanych jak uniknąć paradoksu zbioru wszystkich zbiorów odsyłamy do teorii klas Morse'a-Kelleya.} obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnieje zbiór $\Hom(A, B)$ \textit{morfizmów} z $A$ do $B$. Na ogół piszemy $f:A\to B$ zamiast $f\in \Hom(A,B)$. Zakładamy też, że istnieje operacja składania morfizmów $\circ$ posiadająca następujące własności:
+\begin{enumerate}
+  \item Jeśli $f:A\to B$ oraz $g: B\to C$, to istnieje morfizm $g\circ f: A\to C$.
+  \item Dla dowolnych trzech morfizmów $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $(h\circ g)\circ f = h\circ(g\circ f).$
+  \item Dla każdego obiektu $X$ istnieje morfizm $\Id_X: X\to X$, taki że dla każdego morfizmu $f:A\to B$ mamy $\Id_B\circ f=f=f\circ\Id_A$.
+\end{enumerate}
+
+\begin{prob}
+  Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
+  jest to kategoria dowodząc, że:
+  \begin{enumerate}
+    \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$)
+    \item dla dowolnych trzech funkcji $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $(h\circ g)\circ f = h\circ(g\circ f).$
+    \item Dla każdego zbioru $X$ znajdź funkcję\footnote{Ciekawe jak się może nazywać...} $\Id_X$ taką, że dla dowolnej $f:A\to B$ mamy $\Id_B\circ f=f=f\circ\Id_A$.
+  \end{enumerate}
+\end{prob}
+
+
+\end{document}
