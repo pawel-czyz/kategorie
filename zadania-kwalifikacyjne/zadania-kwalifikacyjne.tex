@@ -16,8 +16,10 @@
 {\stepcounter{itemnum}
 \paragraph*{\arabic{itemnum}.}}
 {}
+
 \newcommand{\Hom}{\text{Hom}}
 \newcommand{\Id}{\text{Id}}
+\newcommand{\Set}{\textbf{Set}}
 
 \begin{document}
 \section{Wstęp}
@@ -37,11 +39,76 @@
   Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
   jest to kategoria dowodząc, że:
   \begin{enumerate}
-    \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$)
+    \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$).
     \item dla dowolnych trzech funkcji $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $(h\circ g)\circ f = h\circ(g\circ f).$
-    \item Dla każdego zbioru $X$ znajdź funkcję\footnote{Ciekawe jak się może nazywać...} $\Id_X$ taką, że dla dowolnej $f:A\to B$ mamy $\Id_B\circ f=f=f\circ\Id_A$.
+    \item dla każdego zbioru $X$ znajdź funkcję\footnote{Ciekawe jak się może nazywać...} $\Id_X$ taką, że dla dowolnej $f:A\to B$ mamy $\Id_B\circ f=f=f\circ\Id_A$.
   \end{enumerate}
+  Kategorię tę nazywamy $\Set$.
+\end{prob}
+
+\section{Morfizmy}
+\subsection{Epimorfizmy}
+Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ is \emph{epimorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': B\to C$ z równości $g\circ f= g'\circ f$ wynika, że
+$g=g'$.
+
+\begin{prob}
+  Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są epimorfizmami, to $g\circ f$ też jest epimorfizmem.
+\end{prob}
+
+\begin{prob}
+  Pokaż, że w kategorii $\Set$ epimorfizmy to dokładnie surjekcje (każdy epimorfizm jest surjekcją, a każda surjekcja epimorfizmem).
 \end{prob}
 
 
+Jako, że obiektami kategorii nie muszą być zbiory, pojęcie "funkcji na" w ogólności może nie mieć sensu, dlatego zdanie "każdy epimorfizm to surjekcja" nie musi mieć sensu. Okazuje się, że
+
+\begin{prob}
+  Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
+  % Podpowiedź: wystarczą dwa obiekty.
+\end{prob}
+
+\subsection{Monomorfizmy}
+Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ is \emph{monomorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': X\to A$ z równości $f\circ g= f\circ g'$ wynika, że
+$g=g'$.
+
+\begin{prob}
+  Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są monomorfizmami, to $g\circ f$ też jest monomorfizmem.
+\end{prob}
+
+\begin{prob}
+  Pokaż, że w kategorii $\Set$ monomorfizmy to dokładnie iniekcje (każdy monomorfizm jest iniekcją, a każda iniekcja monomorfizmem).
+\end{prob}
+
+\begin{prob}
+  Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
+\end{prob}
+
+\subsection{Izomorfizmy}
+Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\circ f'=\Id_B$ oraz $f'\circ f=\Id_A$, to $f$ nazywamy \emph{izomorfizmem}.
+
+
+\begin{prob}
+  \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przyda nam się własności podobne do występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
+  kategorii na ogół jest za duża do bycia zbiorem.}}.
+  Pokaż, że:
+  \begin{enumerate}
+    \item dla każdego obiektu $A$ istnieje izomorfizm z $A$ do $A$.
+    \item jeśli istnieje izomorfizm z $A$ do $B$, to istnieje też izomorfizm z $B$ do $A$.
+    \item jeśli istnieje izomorfizm z $A$ do $B$ oraz z $B$ do $C$, to istnieje też izomorfizm z $A$ do $C$.
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  \emph{Izomorfizmy dzielą własności, które już wykazaliśmy.}
+  \begin{enumerate}
+  \item Pokaż, że każdy izomorfizm jest monomorfizmem oraz epimorfizmem.
+  \item Skonstruuj kategorię, dowodzącą, że twierdzenie odwrotne nie jest prawdziwe (czyli, że istnieje morfizm będący epimorfizmem i monomorfizmem, natomiast nie izomorfizmem).
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  Czym są izomorfizmy w kategorii $\Set$?
+\end{prob}
+
+Powodzenia!
 \end{document}
