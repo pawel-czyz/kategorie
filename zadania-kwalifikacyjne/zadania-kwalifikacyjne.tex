@@ -15,20 +15,26 @@
 \newenvironment{prob}
 {\stepcounter{itemnum}
 \paragraph*{\arabic{itemnum}.}}
-{}
+{~\newline}
 
 \newcommand{\Hom}{\text{Hom}}
 \newcommand{\Id}{\text{Id}}
 \newcommand{\Set}{\textbf{Set}}
+\newcommand{\Setstar}{\textbf{Set}_*}
+\newcommand{\Top}{\textbf{Top}}
 
 \begin{document}
 \section{Wstęp}
-  Celem tych zadań jest oswojenie Cię z podstawowymi pojęciami teorii kategorii. Nie musisz zrobić wszystkich, jednak szczególnie do tego zachęcamy - warsztaty będą polegać głównie na rozwiązywaniu zadań przy tablicy.
+  Celem tych zadań jest oswojenie Cię z pojęciami, z których będziemy korzystać na warsztatach - zatem spróbuj rozwiązać wszystkie zadania, nabyta wiedza okaże się pomocna!
 
   Żadna dodatkowa literatura nie powinna być potrzebna do rozwiązania tych zadań, jednak w razie problemów z zadaniami, sugestii zmian lub chęci zobaczenia określonych kategorii na warsztatach, zachęcamy do kontaktu.
 
+  Obok każdego zadania znajduje się liczba punktów, jakie planujemy za nie przyznać. Nie wykluczamy jednak zmian w punktacji. Za szczególnie eleganckie rozwiązanie, którego nie przewidzieliśmy, będziemy przyznawać dodatkowe punkty, wedle własnego poczucia estetyki.
+
 \section{Kategorie}
-\emph{Kategorią} nazywamy kolekcję\footnote{Można myśleć o tym jak o zbiorze, do którego można włożyć dowolnie dużo elementów. Zainteresowanych jak uniknąć paradoksu zbioru wszystkich zbiorów odsyłamy do teorii klas Morse'a-Kelleya.} obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnieje zbiór $\Hom(A, B)$ \textit{morfizmów} z $A$ do $B$. Na ogół piszemy $f:A\to B$ zamiast $f\in \Hom(A,B)$. Zakładamy też, że istnieje operacja składania morfizmów $\circ$ posiadająca następujące własności:
+\emph{Kategorią} nazywamy kolekcję
+\footnote{Można myśleć o tym jak o zbiorze, do którego można włożyć \emph{dowolnie} dużo elementów. Zainteresowanych jak uniknąć paradoksu zbioru wszystkich zbiorów odsyłamy do teorii klas Morse'a-Kelleya.}
+obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnieje zbiór $\Hom(A, B)$ \textit{morfizmów} z $A$ do $B$. Na ogół piszemy $f:A\to B$ zamiast $f\in \Hom(A,B)$. Zakładamy też, że istnieje operacja składania morfizmów $\circ$ posiadająca następujące własności:
 \begin{enumerate}
   \item Jeśli $f:A\to B$ oraz $g: B\to C$, to istnieje morfizm $g\circ f: A\to C$.
   \item Dla dowolnych trzech morfizmów $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $(h\circ g)\circ f = h\circ(g\circ f).$
@@ -36,7 +42,7 @@
 \end{enumerate}
 
 \begin{prob}
-  Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
+  [3] Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
   jest to kategoria dowodząc, że:
   \begin{enumerate}
     \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$).
@@ -52,18 +58,17 @@ Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ is \emph{epimorfizmem} jeś
 $g=g'$.
 
 \begin{prob}
-  Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są epimorfizmami, to $g\circ f$ też jest epimorfizmem.
+  [4] Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są epimorfizmami, to $g\circ f$ też jest epimorfizmem.
 \end{prob}
 
 \begin{prob}
-  Pokaż, że w kategorii $\Set$ epimorfizmy to dokładnie surjekcje (każdy epimorfizm jest surjekcją, a każda surjekcja epimorfizmem).
+  [4] Pokaż, że w kategorii $\Set$ epimorfizmy to dokładnie surjekcje (każdy epimorfizm jest surjekcją, a każda surjekcja epimorfizmem).
 \end{prob}
-
 
 Jako, że obiektami kategorii nie muszą być zbiory, pojęcie "funkcji na" w ogólności może nie mieć sensu, dlatego zdanie "każdy epimorfizm to surjekcja" nie musi mieć sensu. Okazuje się, że
 
 \begin{prob}
-  Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
+  [4] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
   % Podpowiedź: wystarczą dwa obiekty.
 \end{prob}
 
@@ -72,25 +77,25 @@ Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ is \emph{monomorfizmem} je�
 $g=g'$.
 
 \begin{prob}
-  Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są monomorfizmami, to $g\circ f$ też jest monomorfizmem.
+  [1] Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są monomorfizmami, to $g\circ f$ też jest monomorfizmem.
 \end{prob}
 
 \begin{prob}
-  Pokaż, że w kategorii $\Set$ monomorfizmy to dokładnie iniekcje (każdy monomorfizm jest iniekcją, a każda iniekcja monomorfizmem).
+  [1] Pokaż, że w kategorii $\Set$ monomorfizmy to dokładnie iniekcje (każdy monomorfizm jest iniekcją, a każda iniekcja monomorfizmem).
 \end{prob}
 
 \begin{prob}
-  Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
+  [1] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
 \end{prob}
 
 \subsection{Izomorfizmy}
 Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\circ f'=\Id_B$ oraz $f'\circ f=\Id_A$, to $f$ nazywamy \emph{izomorfizmem}.
 
-
 \begin{prob}
   \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przyda nam się własności podobne do występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
   kategorii na ogół jest za duża do bycia zbiorem.}}.
-  Pokaż, że:
+
+  [2] Pokaż, że:
   \begin{enumerate}
     \item dla każdego obiektu $A$ istnieje izomorfizm z $A$ do $A$.
     \item jeśli istnieje izomorfizm z $A$ do $B$, to istnieje też izomorfizm z $B$ do $A$.
@@ -99,7 +104,8 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
 \end{prob}
 
 \begin{prob}
-  \emph{Izomorfizmy dzielą własności, które już wykazaliśmy.}
+  \emph{To zadanie ma przekonać Cię, że znasz już sporo własności izomorfizmów.}
+  [2]
   \begin{enumerate}
   \item Pokaż, że każdy izomorfizm jest monomorfizmem oraz epimorfizmem.
   \item Skonstruuj kategorię, dowodzącą, że twierdzenie odwrotne nie jest prawdziwe (czyli, że istnieje morfizm będący epimorfizmem i monomorfizmem, natomiast nie izomorfizmem).
@@ -107,7 +113,131 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
 \end{prob}
 
 \begin{prob}
-  Czym są izomorfizmy w kategorii $\Set$?
+  [1] Czym są izomorfizmy w kategorii $\Set$?
+\end{prob}
+
+\section{Kategoria $\textbf{Set}_*$ i funktory}
+\emph{Zbiorem z wyróżnionym punktem} nazywamy parę $(X, x)$, gdzie $X$ jest zbiorem, a $x$ jakimś jego elementem (czyli $x\in X$). Przekształceniem między zbiorami z wyróżnionymi punktami $(X, x)$ oraz $(Y,y)$ (zapisywanym jako $f: (X, x)\to (Y,y)$) nazwiemy funkcję $f: X\to Y$ taką, że $f(x)=y$.
+
+\begin{prob}
+  [3] Pokaż, że zbiory z wyróżnionym punktem wraz z wymienionymi funkcjami tworzą kategorię. Nazywamy ją $\Setstar$.
+\end{prob}
+
+\emph{Funktorem} nazywamy regułę $\zeta$,
+\footnote{Z przyczyn teoriomnogościowych nie jest to funkcja (trudno określić iloczyn kartezjański dwóch kolekcji, a co dopiero wybrać z niej (pod)zbiór).}
+która każdemu obiektowi $A$ w kategorii $\mathcal C$ przypisuje obiekt $\zeta(A)$ w kategorii $\mathcal D$, a każdemu morfizmowi $f\in \Hom(A,B)$ w kategorii $\mathcal C$ przypisuje
+morfizm $\zeta(f)\in \Hom(\zeta(A), \zeta(B))$ w kategorii $\mathcal D$ zachowując złożenie
+\footnote{Tak naprawdę w kategorii $\mathcal C$ mamy jedno złożenie - $\circ_{\mathcal C}$, a w kategorii jakieś zupełnie inne - $\circ_{\mathcal D}$. Dlatego też
+formalista mógłby napisać $$\zeta(f\circ_{\mathcal C} g)=\zeta(f)\circ_{\mathcal D} \zeta(g).$$ My nie będziemy tego robić.}
+:
+
+$$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
+
+\begin{prob}
+  [2] Rozważmy kategorie $\Setstar$ oraz $\Set$ i wprowadźmy funktor\footnote{Będąc bardzo formalnymi, powinno się napisać $\zeta((X, x))$, bo $(X,x)$ jest przekształcanym
+  obiektem, więc powinien stać w dodatkowych nawiasach.}
+  $\zeta(X, x) = X$, który zamienia zbiory z wyróżnionym punktem na zbiory.
+  \begin{enumerate}
+    \item Na co przechodzi funkcja $f: (X,x)\to (Y,y)$?
+    \item Pokaż, że $\zeta$ jest funktorem (znaczy, że zachowuje złożenie).
+  \end{enumerate}
+\end{prob}
+
+\section{Grupy}
+
+\section{Topologia}
+\subsection{Przeciwobraz funkcji}
+Niech $f: X\to Y$ będzie funkcją. Definiujemy pojęcia:
+\begin{enumerate}
+  \item \emph{obrazu} podzbioru: jeśli $A\subseteq X$, to
+    $$f(A) := \{y\in Y : \text{istnieje } x\in X \text{ takie, że } f(x)=y\}$$
+  \item \emph{przeciwobrazu} podzbioru: jeśli $B\subseteq Y$, to
+    $$f^{-1}(B):=\{x\in X : f(x)\in B\}$$
+\end{enumerate}
+
+\begin{prob}
+  \emph{To zadanie pokazuje dlaczego później będziemy korzystać z przeciwobrazu.}
+  [6] Niech $f:X\to Y$, oraz $A, B\subseteq X$ i $C, D\subseteq Y$. Pokaż, że:
+  \begin{enumerate}
+    \item $f(A\cap B)\subseteq f(A)\cap f(B)$.
+    \item Podaj przykład, dowodzący, że zawierania nie można zastąpić znakiem równości.
+    \item $f(A\cup B)=f(A)\cup f(B)$
+    \item $f^{-1}(C\cap D)=f^{-1}(C)\cap f^{-1}(D)$
+    \item $f^{-1}(C\cup D)=f^{-1}(C)\cup f^{-1}(D)$
+    \item $f^{-1}(Y\setminus C)=X\setminus f^{-1}(C)$
+  \end{enumerate}
+\end{prob}
+
+
+\subsection{Przestrzeń topologiczna}
+Niech $X$ będzie zbiorem. Jego \emph{zbiorem potęgowym} $\mathcal P(X)$ nazywamy zbiór wszystkich jego podzbiorów
+\footnote{Jego istnieje gwarantuje aksjomatyka teorii mnogości.}
+: $\mathcal P(X)=\{A: A\subseteq X\}$.
+
+\begin{prob}
+  [1] Niech $X$ będzie zbiorem o skończonej liczbie elementów $n$. Ile elementów ma zbiór $\mathcal P(n)$?
+\end{prob}
+
+\emph{Przestrzenią topologiczną} nazywamy parę $(X, \mathcal T)$, gdzie $X$ jest zbiorem, a $\mathcal T\subseteq \mathcal P(X)$ ma następujące własności:
+\begin{enumerate}
+  \item $\varnothing, X\in \mathcal T$
+  \item jeśli $A_i\in \mathcal T$ dla $i\in I$, to ich suma też należy do $\mathcal T$:
+    $$\bigcup_{i\in I}A_i\in \mathcal T$$
+  \item jeśli $A,B\in \mathcal T$, to $A\cap B\in\mathcal T$
+\end{enumerate}
+Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami otwartymi}.
+
+\begin{prob}
+  [6] Niech $X$ będzie nieskończonym zbiorem. Pokaż, że następujące zbiory są topologiami na $X$:
+  \begin{enumerate}
+    \item $\mathcal T=\{\varnothing, X\}$ (tak zwana \emph{topologia trywialna})
+    \item $\mathcal T=\mathcal P(X)$ (\emph{topologia dyskretna})
+    \item $\mathcal T=\{\varnothing\}\cup \{X\setminus A : A \text{ jest skończonym podzbiorem } X\}$ (\textit{topologia koskończona\footnote{Chyba}})
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  \emph{Zazwyczaj pisząc "przestrzeń topologiczna $\mathbb R$" ma się na myśli $\mathbb R$ wyposażoną w pewną określoną topologię...}
+
+
+  [5] Mówimy, że $A\subseteq \mathbb R$ jest otwarty jeśli dla każdego $x\in A$ istnieje odcinek otwarty $(a_x, b_x)$ taki, że $x\in (a_x, b_x)\subseteq A$.
+  \begin{enumerate}
+    \item Pokaż, że zbiory otwarte według powyższej definicji spełniają wszystkie aksjomaty topologii.
+    \item Pokaż, że każdy zbiór otwarty może być zapisany jako suma pewnej rodziny otwartych odcinków - to znaczy, że jeśli $A$ jest zbiorem otwartym, to istnieją takie odcinki
+    $(a_i,b_i),$ $i\in I$, że:
+    $$A=\bigcup_i ~(a_i, b_i)$$
+  \end{enumerate}
+\end{prob}
+
+
+
+\subsection{Funkcje ciągłe}
+Niech $(X, \mathcal T)$ oraz $(Y, \tau)$ będą przestrzeniami topologicznymi. Funkcję $f: X\to Y$ taką, że $f^{-1}(B)\in \mathcal T$ dla każdego $B\in \tau$ nazywamy \emph{funkcją ciągłą} i oznaczamy $f: (X, \mathcal T)\to (Y, \tau)$.
+
+\begin{prob}
+  [2] Pokaż, że funkcja identycznościowa $\Id_X: (X, \mathcal T)\to (X, \mathcal T)$ jest ciągła.
+\end{prob}
+
+\begin{prob}
+  [2] Pokaż, że funkcja stała $f: (X, \mathcal T)\to (Y, \tau),~f(x)=c$ jest ciągła.
+\end{prob}
+
+\begin{prob}
+  [3] Pokaż, że funkcja $f: \mathbb R\to \mathbb R$ dana wzorem $f(x)=x^2$ jest ciągła. Podpowiedź: jak można zapisać każdy zbiór otwarty w $\mathbb R$? Jakie własności ma przeciwobraz?
+\end{prob}
+
+\subsection{Kategoria $\Top$}
+\begin{prob}
+  [5] Pokaż, że przestrzenie topologiczne wraz z funkcjami ciągłymi tworzą kategorię. Nazywamy ją $\Top.$
+\end{prob}
+
+\begin{prob}
+  [3] Dlaczego:
+  \begin{enumerate}
+    \item monomorfizmy w $\Top$ to dokładnie (ciągłe) iniekcje?
+    \item epimorfizmy to dokładnie (ciągłe) surjekcje?
+    \item izomorfizmy to dokładnie (ciągłe) bijekcje? W tej kategorii nazywamy je \emph{homeomorfizmami}.
+  \end{enumerate}
 \end{prob}
 
 Powodzenia!
