@@ -43,7 +43,7 @@ obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnie
 \end{enumerate}
 
 \begin{prob}
-  [3] Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
+  [8] Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
   jest to kategoria dowodząc, że:
   \begin{enumerate}
     \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$).
@@ -69,7 +69,7 @@ $g=g'$.
 Jako, że obiektami kategorii nie muszą być zbiory, pojęcie "funkcji na" w ogólności może nie mieć sensu, dlatego zdanie "każdy epimorfizm to surjekcja" nie musi mieć sensu. Okazuje się, że
 
 \begin{prob}
-  [4] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
+  [5] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
   % Podpowiedź: wystarczą dwa obiekty.
 \end{prob}
 
@@ -96,7 +96,7 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
   \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przyda nam się własności podobne do występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
   kategorii na ogół jest za duża do bycia zbiorem.}}.
 
-  [2] Pokaż, że:
+  [4] Pokaż, że:
   \begin{enumerate}
     \item dla każdego obiektu $A$ istnieje izomorfizm z $A$ do $A$.
     \item jeśli istnieje izomorfizm z $A$ do $B$, to istnieje też izomorfizm z $B$ do $A$.
@@ -106,7 +106,7 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
 
 \begin{prob}
   \emph{To zadanie ma przekonać Cię, że znasz już sporo własności izomorfizmów.}
-  [2]
+  [3]
   \begin{enumerate}
   \item Pokaż, że każdy izomorfizm jest monomorfizmem oraz epimorfizmem.
   \item Skonstruuj kategorię, dowodzącą, że twierdzenie odwrotne nie jest prawdziwe (czyli, że istnieje morfizm będący epimorfizmem i monomorfizmem, natomiast nie izomorfizmem).
@@ -121,7 +121,7 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
 \emph{Zbiorem z wyróżnionym punktem} nazywamy parę $(X, x)$, gdzie $X$ jest zbiorem, a $x$ jakimś jego elementem (czyli $x\in X$). Przekształceniem między zbiorami z wyróżnionymi punktami $(X, x)$ oraz $(Y,y)$ (zapisywanym jako $f: (X, x)\to (Y,y)$) nazwiemy funkcję $f: X\to Y$ taką, że $f(x)=y$.
 
 \begin{prob}
-  [3] Pokaż, że zbiory z wyróżnionym punktem wraz z wymienionymi funkcjami tworzą kategorię. Nazywamy ją $\Setstar$.
+  [5] Pokaż, że zbiory z wyróżnionym punktem wraz z wymienionymi funkcjami tworzą kategorię. Nazywamy ją $\Setstar$.
 \end{prob}
 
 \emph{Funktorem} nazywamy regułę $\zeta$,
@@ -135,7 +135,7 @@ formalista mógłby napisać $$\zeta(f\circ_{\mathcal C} g)=\zeta(f)\circ_{\math
 $$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
 
 \begin{prob}
-  [2] Rozważmy kategorie $\Setstar$ oraz $\Set$ i wprowadźmy funktor\footnote{Będąc bardzo formalnymi, powinno się napisać $\zeta((X, x))$, bo $(X,x)$ jest przekształcanym
+  [3] Rozważmy kategorie $\Setstar$ oraz $\Set$ i wprowadźmy funktor\footnote{Będąc bardzo formalnymi, powinno się napisać $\zeta((X, x))$, bo $(X,x)$ jest przekształcanym
   obiektem, więc powinien stać w dodatkowych nawiasach.}
   $\zeta(X, x) = X$, który zamienia zbiory z wyróżnionym punktem na zbiory.
   \begin{enumerate}
@@ -154,7 +154,7 @@ $$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
 \end{enumerate}
 
 \begin{prob}
-  Rozstrzygnij czy następujące zbiory z działaniami są grupami:
+  [3] Rozstrzygnij czy następujące zbiory z działaniami są grupami:
   \begin{enumerate}
     \item $(\mathbb Z, +)$
     \item $(\mathbb Z, \cdot)$
@@ -180,7 +180,7 @@ Jeśli $G$ oraz $H$ są grupami, to funkcję $f: G\to H$ nazywamy \emph{homomorf
 \footnote{Zauważ, że nie piszemy już symbolu "mnożenia"}
 
 \begin{prob}
-  [2] Pokaż, że jeśli $f: G\to H$ jest homomorfizmem, to $f(g^{-1})=f(g)^{-1}$ oraz $f(e)=\epsilon$, gdzie $e\in G, \epsilon\in H$ oznaczają elementy neutralne odpowiednich grup.
+  [4] Pokaż, że jeśli $f: G\to H$ jest homomorfizmem, to $f(g^{-1})=f(g)^{-1}$ oraz $f(e)=\epsilon$, gdzie $e\in G, \epsilon\in H$ oznaczają elementy neutralne odpowiednich grup.
 \end{prob}
 
 \begin{prob}
@@ -192,7 +192,7 @@ Jeśli $G$ oraz $H$ są grupami, to funkcję $f: G\to H$ nazywamy \emph{homomorf
 \end{prob}
 
 \begin{prob}
-  [7] Ile jest, z dokładnością do izomorfizmu, grup:
+  [8] Ile jest, z dokładnością do izomorfizmu, grup:
   \begin{enumerate}
     \item o dwóch elementach?
     \item o trzech elementach?
@@ -213,7 +213,7 @@ Niech $f: X\to Y$ będzie funkcją. Definiujemy pojęcia:
 
 \begin{prob}
   \emph{To zadanie pokazuje dlaczego później będziemy korzystać z przeciwobrazu.}
-  [6] Niech $f:X\to Y$, oraz $A, B\subseteq X$ i $C, D\subseteq Y$. Pokaż, że:
+  [12] Niech $f:X\to Y$, oraz $A, B\subseteq X$ i $C, D\subseteq Y$. Pokaż, że:
   \begin{enumerate}
     \item $f(A\cap B)\subseteq f(A)\cap f(B)$.
     \item Podaj przykład, dowodzący, że zawierania nie można zastąpić znakiem równości.
@@ -244,7 +244,7 @@ Niech $X$ będzie zbiorem. Jego \emph{zbiorem potęgowym} $\mathcal P(X)$ nazywa
 Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami otwartymi}.
 
 \begin{prob}
-  [6] Niech $X$ będzie nieskończonym zbiorem. Pokaż, że następujące zbiory są topologiami na $X$:
+  [8] Niech $X$ będzie nieskończonym zbiorem. Pokaż, że następujące zbiory są topologiami na $X$:
   \begin{enumerate}
     \item $\mathcal T=\{\varnothing, X\}$ (tak zwana \emph{topologia trywialna})
     \item $\mathcal T=\mathcal P(X)$ (\emph{topologia dyskretna})
@@ -271,11 +271,11 @@ Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami
 Niech $(X, \mathcal T)$ oraz $(Y, \tau)$ będą przestrzeniami topologicznymi. Funkcję $f: X\to Y$ taką, że $f^{-1}(B)\in \mathcal T$ dla każdego $B\in \tau$ nazywamy \emph{funkcją ciągłą} i oznaczamy $f: (X, \mathcal T)\to (Y, \tau)$.
 
 \begin{prob}
-  [2] Pokaż, że funkcja identycznościowa $\Id_X: (X, \mathcal T)\to (X, \mathcal T)$ jest ciągła.
+  [5] Pokaż, że funkcja identycznościowa $\Id_X: (X, \mathcal T)\to (X, \mathcal T)$ jest ciągła.
 \end{prob}
 
 \begin{prob}
-  [2] Pokaż, że funkcja stała $f: (X, \mathcal T)\to (Y, \tau),~f(x)=c$ jest ciągła.
+  [5] Pokaż, że funkcja stała $f: (X, \mathcal T)\to (Y, \tau),~f(x)=c$ jest ciągła.
 \end{prob}
 
 \begin{prob}
@@ -283,11 +283,10 @@ Niech $(X, \mathcal T)$ oraz $(Y, \tau)$ będą przestrzeniami topologicznymi. F
 \end{prob}
 
 \subsection{Kategoria $\Top$}
+
 \begin{prob}
   [5] Pokaż, że przestrzenie topologiczne wraz z funkcjami ciągłymi tworzą kategorię. Nazywamy ją $\Top.$
 \end{prob}
-
-
 
 \begin{prob}
   [3] Dlaczego:
