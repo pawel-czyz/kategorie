@@ -22,6 +22,7 @@
 \newcommand{\Set}{\textbf{Set}}
 \newcommand{\Setstar}{\textbf{Set}_*}
 \newcommand{\Top}{\textbf{Top}}
+\newcommand{\Grp}{\textbf{Grp}}
 
 \begin{document}
 \section{Wstęp}
@@ -144,6 +145,61 @@ $$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
 \end{prob}
 
 \section{Grupy}
+\emph{Grupa} to para $(G, *)$, gdzie $G$ jest zbiorem, a funkcja $*: G\times G\to G$ (będziemy pisać $g*h$ lub $gh$ zamiast $*(g,h)$) ma następujące własności:
+\begin{enumerate}
+  \item istnieje element $e\in G$ taki, że $ge=eg=g$ dla każdego $g\in G$. Będziemy nazywać go \emph{elementem neutralnym}.
+  \item dla każdego $g\in G$ istnieje element $\tilde g\in G$ taki, że $g\tilde g=\tilde g g=e.$ Zazwyczaj piszemy $g^{-1}$ zamiast $\tilde g$ oraz nazywamy go
+  \emph{elementem odwrotnym do $g$}.
+  \item dla dowolnych $f, g, h\in G$ zachodzi równość $(fg)h=f(gh)$.
+\end{enumerate}
+
+\begin{prob}
+  Rozstrzygnij czy następujące zbiory z działaniami są grupami:
+  \begin{enumerate}
+    \item $(\mathbb Z, +)$
+    \item $(\mathbb Z, \cdot)$
+    \item $(\mathbb Q, \cdot)$
+    \item $(\mathbb Q^*, \cdot)$, gdzie $\mathbb Q^*=\mathbb Q\setminus \{0\}$
+    \item $(\mathbb Q^*, +)$
+    \item $(\sigma_n, \circ)$, gdzie $\sigma_n$ oznacza zbiór permutacji
+    \footnote{Permutacja na zbiorze $X$ to bijekcja $X\to X$.}
+     zbioru $n$-elementowego, a $\circ$ jest zwykłym złożeniem funkcji
+  \end{enumerate}
+\end{prob}
+
+\begin{prob}
+  [4] Dlaczego:
+    \begin{enumerate}
+      \item istnieje \emph{dokładnie jeden} element neutralny?
+      \item dla każdego elementu $g$ istnieje \emph{dokładnie jeden} element odwrotny?
+    \end{enumerate}
+\end{prob}
+
+\subsection{Homomorfizmy}
+Jeśli $G$ oraz $H$ są grupami, to funkcję $f: G\to H$ nazywamy \emph{homomorfizmem} jeśli $f(gh)=f(g)f(h)$ dla każdych $g,h\in G$.
+\footnote{Zauważ, że nie piszemy już symbolu "mnożenia"}
+
+\begin{prob}
+  [2] Pokaż, że jeśli $f: G\to H$ jest homomorfizmem, to $f(g^{-1})=f(g)^{-1}$ oraz $f(e)=\epsilon$, gdzie $e\in G, \epsilon\in H$ oznaczają elementy neutralne odpowiednich grup.
+\end{prob}
+
+\begin{prob}
+  [3] Pokaż, że grupy wraz z homomorfizmami tworzą kategorię. Nazywamy ją $\Grp$.
+\end{prob}
+
+\begin{prob}
+  [2] Wykaż, że izomorfizmy w $\Grp$ to dokładnie bijektywne homomorfizmy.
+\end{prob}
+
+\begin{prob}
+  [7] Ile jest, z dokładnością do izomorfizmu, grup:
+  \begin{enumerate}
+    \item o dwóch elementach?
+    \item o trzech elementach?
+    \item o czterech elementach?
+  \end{enumerate}
+  Podpowiedź: pomyśl nad ograniczeniami jakie narzuca łączność mnożenia oraz istnienie elementu odwrotnego.
+\end{prob}
 
 \section{Topologia}
 \subsection{Przeciwobraz funkcji}
@@ -230,6 +286,8 @@ Niech $(X, \mathcal T)$ oraz $(Y, \tau)$ będą przestrzeniami topologicznymi. F
 \begin{prob}
   [5] Pokaż, że przestrzenie topologiczne wraz z funkcjami ciągłymi tworzą kategorię. Nazywamy ją $\Top.$
 \end{prob}
+
+
 
 \begin{prob}
   [3] Dlaczego:
