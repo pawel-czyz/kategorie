@@ -30,7 +30,7 @@
 
   Żadna dodatkowa literatura nie powinna być potrzebna do rozwiązania tych zadań, jednak w razie problemów z zadaniami, sugestii zmian lub chęci zobaczenia określonych kategorii na warsztatach, zachęcamy do kontaktu.
 
-  Obok każdego zadania znajduje się liczba punktów, jakie planujemy za nie przyznać. Nie wykluczamy jednak zmian w punktacji. Za szczególnie eleganckie rozwiązanie, którego nie przewidzieliśmy, będziemy przyznawać dodatkowe punkty, wedle własnego poczucia estetyki.
+  Obok każdego zadania znajduje się liczba punktów, jakie planujemy za nie przyznać. Nie wykluczamy jednak zmian w punktacji. Za szczególnie eleganckie rozwiązanie będziemy przyznawać dodatkowe punkty, wedle własnego poczucia estetyki.
 
 \section{Kategorie}
 \emph{Kategorią} nazywamy kolekcję
@@ -55,7 +55,7 @@ obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnie
 
 \section{Morfizmy}
 \subsection{Epimorfizmy}
-Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ is \emph{epimorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': B\to C$ z równości $g\circ f= g'\circ f$ wynika, że
+Niech $f:A\to B$ będzie morfizmem. Mówimy, że $f$ jest \emph{epimorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': B\to C$ z równości $g\circ f= g'\circ f$ wynika, że
 $g=g'$.
 
 \begin{prob}
@@ -66,7 +66,7 @@ $g=g'$.
   [4] Pokaż, że w kategorii $\Set$ epimorfizmy to dokładnie surjekcje (każdy epimorfizm jest surjekcją, a każda surjekcja epimorfizmem).
 \end{prob}
 
-Jako, że obiektami kategorii nie muszą być zbiory, pojęcie "funkcji na" w ogólności może nie mieć sensu, dlatego zdanie "każdy epimorfizm to surjekcja" nie musi mieć sensu. Okazuje się, że
+Jako, że obiektami kategorii nie muszą być zbiory, pojęcie "funkcji na" w ogólności może nie mieć sensu, dlatego zdanie "każdy epimorfizm to surjekcja" nie musi mieć sensu. Okazuje się, że nawet jeśli obiektami są \emph{pewne} zbiory, nie musi to być prawda.
 
 \begin{prob}
   [5] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
@@ -86,14 +86,14 @@ $g=g'$.
 \end{prob}
 
 \begin{prob}
-  [1] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
+  [1] Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie iniekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
 \end{prob}
 
 \subsection{Izomorfizmy}
 Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\circ f'=\Id_B$ oraz $f'\circ f=\Id_A$, to $f$ nazywamy \emph{izomorfizmem}.
 
 \begin{prob}
-  \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przyda nam się własności podobne do występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
+  \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przydadzą nam się własności podobne do tych występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
   kategorii na ogół jest za duża do bycia zbiorem.}}.
 
   [4] Pokaż, że:
@@ -129,7 +129,7 @@ Niech $f:A\to B$ będzie morfizmem. Jeśli istnieje $f':B\to A$ takie, że $f\ci
 która każdemu obiektowi $A$ w kategorii $\mathcal C$ przypisuje obiekt $\zeta(A)$ w kategorii $\mathcal D$, a każdemu morfizmowi $f\in \Hom(A,B)$ w kategorii $\mathcal C$ przypisuje
 morfizm $\zeta(f)\in \Hom(\zeta(A), \zeta(B))$ w kategorii $\mathcal D$ zachowując złożenie
 \footnote{Tak naprawdę w kategorii $\mathcal C$ mamy jedno złożenie - $\circ_{\mathcal C}$, a w kategorii jakieś zupełnie inne - $\circ_{\mathcal D}$. Dlatego też
-formalista mógłby napisać $$\zeta(f\circ_{\mathcal C} g)=\zeta(f)\circ_{\mathcal D} \zeta(g).$$ My nie będziemy tego robić.}
+ktoś mógłby napisać $$\zeta(f\circ_{\mathcal C} g)=\zeta(f)\circ_{\mathcal D} \zeta(g).$$ My nie będziemy tego robić.}
 :
 
 $$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
@@ -162,7 +162,7 @@ $$\zeta(f\circ g)=\zeta(f)\circ \zeta(g).$$
     \item $(\mathbb Q^*, \cdot)$, gdzie $\mathbb Q^*=\mathbb Q\setminus \{0\}$
     \item $(\mathbb Q^*, +)$
     \item $(\sigma_n, \circ)$, gdzie $\sigma_n$ oznacza zbiór permutacji
-    \footnote{Permutacja na zbiorze $X$ to bijekcja $X\to X$.}
+    \footnote{Permutacja zbioru $X$ to bijekcja $X\to X$.}
      zbioru $n$-elementowego, a $\circ$ jest zwykłym złożeniem funkcji
   \end{enumerate}
 \end{prob}
@@ -192,7 +192,10 @@ Jeśli $G$ oraz $H$ są grupami, to funkcję $f: G\to H$ nazywamy \emph{homomorf
 \end{prob}
 
 \begin{prob}
-  [8] Ile jest, z dokładnością do izomorfizmu, grup:
+  [8] Ile jest, z dokładnością do izomorfizmu
+  \footnote{To znaczy, że nie rozróżniamy grup, które są izomorficzne. Na przykład w kategorii $\Set$ istnieje tylko jeden zbiór dwunastoelementowy, licząc z dokładnością do izomorfizmu,
+  czyli bijekcji.}
+  , grup:
   \begin{enumerate}
     \item o dwóch elementach?
     \item o trzech elementach?
@@ -248,7 +251,8 @@ Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami
   \begin{enumerate}
     \item $\mathcal T=\{\varnothing, X\}$ (tak zwana \emph{topologia trywialna})
     \item $\mathcal T=\mathcal P(X)$ (\emph{topologia dyskretna})
-    \item $\mathcal T=\{\varnothing\}\cup \{X\setminus A : A \text{ jest skończonym podzbiorem } X\}$ (\textit{topologia koskończona\footnote{Chyba}})
+    \item $\mathcal T=\{\varnothing\}\cup \{X\setminus A : A \text{ jest skończonym podzbiorem } X\}$ (\textit{topologia koskończona
+    \footnote{Chyba... jakoś to nie brzmi}})
   \end{enumerate}
 \end{prob}
 
