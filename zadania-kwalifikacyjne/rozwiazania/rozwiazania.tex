@@ -1,0 +1,452 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage[bottom]{footmisc}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{tikz-cd}
+
+\newcounter{itemnum}
+\newenvironment{prob}
+{\stepcounter{itemnum}
+\paragraph*{Zadanie \arabic{itemnum}.}}
+{~\newline}
+
+\newcounter{itemnum2}
+\newenvironment{sol}
+{\stepcounter{itemnum2}
+\paragraph*{Rozwiązanie zadania \arabic{itemnum2}.}}
+{~\newline}
+
+\newcommand{\points}[1]{\textbf{[#1]}}
+
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+
+\newcommand{\Hom}{\text{Hom}}
+\newcommand{\Id}{\text{Id}}
+\newcommand{\Set}{\textbf{Set}}
+\newcommand{\Setstar}{\textbf{Set}_*}
+\newcommand{\Top}{\textbf{Top}}
+\newcommand{\Grp}{\textbf{Grp}}
+\newcommand{\Example}{\textbf{Example}}
+
+\begin{document}
+\section{Kategorie}
+\begin{prob}
+  \points{8} Niech obiektami będą zbiory, morfizmami funkcje, a operacją $\circ$ złożenie funkcji\footnote{Cóż za niezwykły zbieg okoliczności - to ten sam symbol!}. Pokaż, że
+  jest to kategoria dowodząc, że:
+  \begin{enumerate}
+    \item dla dowolnych zbiorów $A, B$, wszystkie funkcje z $A$ do $B$ tworzą zbiór (nazywany $\Hom(A,B)$).
+    \item dla dowolnych trzech funkcji $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $(h\circ g)\circ f = h\circ(g\circ f).$
+    \item dla każdego zbioru $X$ znajdź funkcję\footnote{Ciekawe jak się może nazywać...} $\Id_X$ taką, że dla dowolnej $f:A\to B$ mamy $\Id_B\circ f=f=f\circ\Id_A$.
+  \end{enumerate}
+  Kategorię tę nazywamy $\Set$.
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{3} Rozważmy zbiory $A, B$. Każda funkcja z $A$ do $B$ to z definicji pewien podzbiór $A\times B$, zatem wszystkie funkcje z $A$ do $B$ to pewien podzbiór zbioru potęgowego $A\times B$.
+    \item \points{3} Rozważmy funkcje podane $f,~g,~h$ takie jak w treści zadania. Wówczas dla każdego $a\in A$ zachodzi równość $$((h\circ g)\circ f)(a)=h(g(f(a))=(h\circ (g\circ f))(a),$$ która pociąga tezę zadania.
+    \item \points{2} Funkcja identycznościowe postaci $\Id_X=\{(x,x)\in X\times X : x\in X\}$ są tymi szukanymi, ponieważ dla każdego $a\in A$ mamy równości
+    $$\Id_B(f(a))=f(a)=f(\Id_A(a)).$$
+  \end{enumerate}
+\end{sol}
+
+\section{Morfizmy}
+\subsection{Epimorfizmy}
+
+\begin{prob}
+  \points{4} Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są epimorfizmami, to $g\circ f$ też jest epimorfizmem.
+\end{prob}
+\begin{sol}
+  \points{4} Rozważmy dowolne morfizmy $\alpha, \alpha' : C\to D$ takie, że $\alpha\circ g\circ f=\alpha'\circ g\circ f$. Ponieważ $f$ jest epimorfizmem otrzymujemy z tego równość:
+  $\alpha\circ g=\alpha'\circ g$. Ponieważ $g$ jest epimorfizmem otrzymujemy $\alpha=\alpha'$, co należało wykazać.
+\end{sol}
+
+\begin{prob}
+  \points{4} Pokaż, że w kategorii $\Set$ epimorfizmy to dokładnie surjekcje (każdy epimorfizm jest surjekcją, a każda surjekcja epimorfizmem).
+\end{prob}
+\begin{sol}
+  \points{2} \textit{Każda surjekcja to epimorfizm:} Niech $f: A\to B$ będzie surjekcją. Chcemy pokazać, że dla dowolnych funkcji $g,g': B\to C$ takich, że $g\circ f=g\circ g'$, wynika, że $g=g'$.
+  Przypuśćmy, że istnieje takie $b\in B$, że $g(b)\neq g'(b)$. Ponieważ $f$ jest surjekcją, istnieje takie $a\in A$, że $f(a)=b$. Zatem otrzymujemy:
+  $g(b)=g(f(a))=(g\circ f)(a)=(g'\circ f)(a)=g'(f(a))=g'(b)$, co stoi w sprzeczności z przypuszczeniem.
+
+  \points{2} \textit{Każdy epimorfizm to surjekcja:} Niech $f: A\to B$ będzie epimorfizmem niebędącym surjekcją. Możemy zatem określić funkcję:
+  $g: B\ \to \{0, 1\},$
+  taką, że $g(a)=1$ dla $a$ leżącego w obrazie funkcji $f$ oraz $g(b)=0$ dla $b$ nieleżących w obrazie funkcji $f$. Niech teraz $g': B\to \{0,1\}$ będzie funkcją stałą, równą 1.
+  Wówczas $g\circ f=g'\circ f$, lecz $g\neq g'$, co pokazuje, że epimorfizm niebędący surjekcją nie może istnieć.
+\end{sol}
+
+\begin{prob}
+  \points{5} Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie surjekcji ma sens), natomiast istnieje epimorfizm niebędący surjekcją.
+\end{prob}
+\begin{sol}
+  \points{5} Kategorią $\Example$ nazwijmy kategorię, której obiektami są zbiory $A=\{0, 1\}$ oraz $B=\{5, 10\}$, a morfizmami $\Id_A, \Id_B$ oraz $f: A\to B, f(a)=5$ dla każdego $a\in A$.
+  Wówczas $f$ nie jest surjekcją, lecz jest epimorfizmem.
+\end{sol}
+
+\subsection{Monomorfizmy}
+\begin{prob}
+  \points{1} Pokaż, że jeśli $f:A\to B$ oraz $g: B\to C$ są monomorfizmami, to $g\circ f$ też jest monomorfizmem.
+\end{prob}
+\begin{sol}
+  \points{1} Dowód przebiega dokładnie tak samo jak dla epimorfizmów, poza tym, że skracamy funkcje poczynając od tej najbardziej z lewej.
+\end{sol}
+
+\begin{prob}
+  \points{1} Pokaż, że w kategorii $\Set$ monomorfizmy to dokładnie iniekcje (każdy monomorfizm jest iniekcją, a każda iniekcja monomorfizmem).
+\end{prob}
+\begin{sol}
+  \points{1} Dowód przebiega analogicznie do epimorfizmów i surjekcji, natomiast wprowadzamy funkcje ze zbioru jednoelementowego $\{0\}$.
+\end{sol}
+
+\begin{prob}
+  \points{1} Skonstruuj kategorię, której obiektami są pewne zbiory (tak więc pojęcie iniekcji ma sens), natomiast istnieje monomorfizm niebędący iniekcją.
+\end{prob}
+\begin{sol}
+  \points{1} Kategoria $\Example$ ponownie okazuje się poprawnym przykładem.
+\end{sol}
+
+\subsection{Izomorfizmy}
+\begin{prob}
+  \emph{Będziemy wykorzystywać izomorfizmy do utożsamiania pewnych przestrzeni. W tym celu przydadzą nam się własności podobne do tych występujących w definicji relacji równoważności \footnote{Nazwanie "dokładności do izomorfizmu" relacją równoważności jest kuszące, natomiast relacje równoważności określone są na \textit{zbiorach}. Kolekcja obiektów
+  kategorii na ogół jest za duża do bycia zbiorem.}}.
+
+  \points{4} Pokaż, że:
+  \begin{enumerate}
+    \item dla każdego obiektu $A$ istnieje izomorfizm z $A$ do $A$.
+    \item jeśli istnieje izomorfizm z $A$ do $B$, to istnieje też izomorfizm z $B$ do $A$.
+    \item jeśli istnieje izomorfizm z $A$ do $B$ oraz z $B$ do $C$, to istnieje też izomorfizm z $A$ do $C$.
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{1} Dla każdego obiektu $A$ istnieje morfizm $\Id_A$, który jest izomorfizmem.
+    \item \points{1} Wynika to wprost z definicji izomorfizmu.
+    \item \points{2} Niech $f$ będzie izomorfizmem z $A$ do $B$, a $g$ izomorfizmem z $B$ do $C$. Przez $m'$ oznaczmy izomorfizm "odwrotny" do izomorfizmu $m$. Wówczas
+      $g\circ f$ jest izomorfizmem z $A$ do $C$ ponieważ $(g\circ f)\circ (f'\circ g')=\Id_C$ oraz $(f'\circ g')\circ (g\circ f)=\Id_A$.
+  \end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \emph{To zadanie ma przekonać Cię, że znasz już sporo własności izomorfizmów.}
+  \points{3}
+  \begin{enumerate}
+  \item Pokaż, że każdy izomorfizm jest monomorfizmem oraz epimorfizmem.
+  \item Skonstruuj kategorię, dowodzącą, że twierdzenie odwrotne nie jest prawdziwe (czyli, że istnieje morfizm będący epimorfizmem i monomorfizmem, natomiast nie izomorfizmem).
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{2} Niech $f: A\to B$ będzie izomorfizmem, czyli istnieje $g:B\to A$, które odpowiednio złożone z $f$ daje identyczności na $A$ i $B$. Aby pokazać, że $f$ jest epimorfizmem
+    rozważmy morfizmy $\alpha, \alpha'$ takie, że $\alpha \circ f=\alpha' \circ f$. Składając obydwie strony równości z $g$ otrzymujemy $\alpha \circ \Id_B = \alpha'\circ Id_B$,
+    co pokazuje, że $\alpha=\alpha'$. Dowód, że $f$ jest monomorfizmem przebiega tak samo, z tym, że dokładamy $g$ od lewej strony.
+    \item \points{1} Kategoria $\Example$ raz jeszcze.
+  \end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \points{1} Czym są izomorfizmy w kategorii $\Set$?
+\end{prob}
+\begin{sol}
+  \points{1} Wiemy, że każdy izomorfizm to monomorfizm i epimorfizm, czyli w $\Set$ każdy izomorfizm musi być iniekcją i surjekcją jednocześnie. Zatem wszystkimi kandydatami na izomorfizmy
+  są bijekcje. Dla każdej bijekcji istnieje funkcja odwrotna, co pokazuje, że \textit{bijekcje to dokładnie izomorfizmy w kategorii $\Set.$}
+\end{sol}
+
+\section{Kategoria $\textbf{Set}_*$ i funktory}
+\begin{prob}
+  \points{5} Pokaż, że zbiory z wyróżnionym punktem wraz z wymienionymi funkcjami tworzą kategorię. Nazywamy ją $\Setstar$.
+\end{prob}
+\begin{sol}
+\begin{enumerate}
+  \item \points{2} Rozważmy dwa obiekty: $(X, x)$ oraz $(Y,y)$ wszystkie funkcje z $X$ do $Y$ zamieniające $x$ na $y$ to podzbiór zbioru funkcji z $X$ do $Y$ (dowód, że wszystkie funkcje z $X$
+  do $Y$ tworzą zbiór został przeprowadzony w zadaniu 1.)
+  \item \points{2} Rozważmy morfizmy $f: (A,a)\to (B,b), ~g: (B,b)\to (C,c)$. Wówczas $g\circ f: A\to C$ oraz $g(f(a))=g(b)=c$, więc morfizmy składają się poprawnie
+  \item \points{1} Dla każdego obiektu $(X,x)$ funkcja identycznościowa $\Id_X$ jest dobrym morfizmem.
+\end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \points{3} Rozważmy kategorie $\Setstar$ oraz $\Set$ i wprowadźmy funktor\footnote{Będąc bardzo formalnymi, powinno się napisać $\zeta((X, x))$, bo $(X,x)$ jest przekształcanym
+  obiektem, więc powinien stać w dodatkowych nawiasach.}
+  $\zeta(X, x) = X$, który zamienia zbiory z wyróżnionym punktem na zbiory.
+  \begin{enumerate}
+    \item Na co przechodzi funkcja $f: (X,x)\to (Y,y)$?
+    \item Pokaż, że $\zeta$ jest funktorem (znaczy, że zachowuje złożenie).
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{1} Funkcja $f$ jako obiekt matematyczny (czyli w zasadzie jako pewien podzbiór $X\times Y$) się nie zmienia - natomiast teraz jest traktowana jako morfizm w innej kategorii
+    \item \points{2} Dla dowolnego obiektu $(X,x)$ w $\Setstar$ mamy $\zeta(\Id_{(X,x)})=\Id_X$ oraz dla dowolnych morfizmów $\zeta(f\circ g)=\zeta(f)\circ \zeta(g)$, co wynika z powyższej
+      obserwacji.
+  \end{enumerate}
+\end{sol}
+
+\section{Grupy}
+\emph{Grupa} to para $(G, *)$, gdzie $G$ jest zbiorem, a funkcja $*: G\times G\to G$ (będziemy pisać $g*h$ lub $gh$ zamiast $*(g,h)$) ma następujące własności:
+\begin{enumerate}
+  \item istnieje element $e\in G$ taki, że $ge=eg=g$ dla każdego $g\in G$. Będziemy nazywać go \emph{elementem neutralnym}.
+  \item dla każdego $g\in G$ istnieje element $\tilde g\in G$ taki, że $g\tilde g=\tilde g g=e.$ Zazwyczaj piszemy $g^{-1}$ zamiast $\tilde g$ oraz nazywamy go
+  \emph{elementem odwrotnym do $g$}.
+  \item dla dowolnych $f, g, h\in G$ zachodzi równość $(fg)h=f(gh)$.
+\end{enumerate}
+
+\begin{prob}
+  \points{3} Rozstrzygnij czy następujące zbiory z działaniami są grupami:
+  \begin{enumerate}
+    \item $(\mathbb Z, +)$
+    \item $(\mathbb Z, \circ)$
+    \item $(\mathbb Q, \circ)$
+    \item $(\mathbb Q^*, \circ)$, gdzie $\mathbb Q^*=\mathbb Q\setminus \{0\}$
+    \item $(\mathbb Q^*, +)$
+    \item $(\sigma_n, \circ)$, gdzie $\sigma_n$ oznacza zbiór permutacji
+    \footnote{Permutacja zbioru $X$ to bijekcja $X\to X$.}
+     zbioru $n$-elementowego, a $\circ$ jest zwykłym złożeniem funkcji
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{0.5} Tak - 0 jest elementem neutralnym, a elementem odwrotnym do $a\in \Z$ jest $-a$. Ponadto dla dowolnych $a,b,c$ mamy $(a+b)+c=a+(b+c).$
+    \item \points{0.5} Nie - w każdej grupie element neutralny jest unikatowy (zobacz następne zadanie), tutaj musiałaby to być jedynka. Wówczas liczba 2 nie ma elementu odwrotnego
+    (liczba $1/2$ nie jest liczbą całkowitą)
+    \item \points{0.5} Nie - dla każdej liczby $x$ mamy $0\circ x=0$, więc 0 musiałoby być elementem neutralnym mnożenia. A nie jest bo $0\circ5\neq 5$ (lub też dlatego, że jest nim jedynka, a
+    element neutralny jest unikatowy)
+    \item \points{0.5} Tak - elementem neutralnym jest jedynka, elementem odwrotnym jest liczba odwrotna, a mnożenie jest łączne.
+    \item \points{0.5} Nie - elementem neutralnym musiałoby być 0, którego nie ma w tym zbiorze
+    \item \points{0.5} Tak - funkcja identycznościowa jest permutacją i elementem neutralnym, do każdej permutacji istnieje permutacja odwrotna, a składanie funkcji jest łączne.
+  \end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \points{4} Dlaczego:
+    \begin{enumerate}
+      \item istnieje \emph{dokładnie jeden} element neutralny?
+      \item dla każdego elementu $g$ istnieje \emph{dokładnie jeden} element odwrotny?
+    \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{2} Jeśli $e$ oraz $e'$ są elementami neutralnymi to $e=ee'=e'$.
+    \item \points{2} Niech $h$ i $h'$ będą elementami odwrotnymi do $g$. Zatem:
+    $$h=he=h(gh')=(hg)h'=eh'=h'.$$
+  \end{enumerate}
+\end{sol}
+
+\subsection{Homomorfizmy}
+\begin{prob}
+  \points{4} Pokaż, że jeśli $f: G\to H$ jest homomorfizmem, to $f(g^{-1})=f(g)^{-1}$ oraz $f(e)=\epsilon$, gdzie $e\in G, \epsilon\in H$ oznaczają elementy neutralne odpowiednich grup.
+\end{prob}
+\begin{sol}
+  \points{2} Dla dowolnego $g\in G$ mamy $f(g)=f(ge)=f(g)f(e)$ i analogicznie $f(g)=f(e)f(g)$. Zatem $f(e)$ jest elementem neutralnym $H$.
+  \points{2} Wówczas: $f(g^{-1})f(g)=f(g^{-1}g)=f(e)=\epsilon,$ więc $f(g^{-1})=f(g)^{-1}.$
+\end{sol}
+
+\begin{prob}
+  \points{3} Pokaż, że grupy wraz z homomorfizmami tworzą kategorię. Nazywamy ją $\Grp$.
+\end{prob}
+% TODO
+\begin{sol}
+
+\end{sol}
+
+
+\begin{prob}
+  \points{2} Wykaż, że izomorfizmy w $\Grp$ to dokładnie bijektywne homomorfizmy.
+\end{prob}
+% TODO
+\begin{sol}
+
+\end{sol}
+
+
+\begin{prob}
+  \points{8} Ile jest, z dokładnością do izomorfizmu\footnote{To znaczy, że nie rozróżniamy grup, które są izomorficzne. Na przykład w kategorii $\Set$ istnieje tylko jeden zbiór dwunastoelementowy, licząc z dokładnością do izomorfizmu,
+  czyli bijekcji.}, grup:
+  \begin{enumerate}
+    \item o dwóch elementach?
+    \item o trzech elementach?
+    \item o czterech elementach?
+  \end{enumerate}
+  Podpowiedź: pomyśl nad ograniczeniami jakie narzuca łączność mnożenia oraz istnienie elementu odwrotnego.
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{2} Jeden element to element neutralny $e$. Drugi oznaczmy przez $g$. Wówczas $g^2=e$ jako, że $ge=eg=g\neq e$, a $g$ musi mieć element odwrotny. Zatem mamy dokładnie jedną
+    taką grupę, powstałą według reguł mnożenia: $e^2=g^2=e$, $ge=eg=g$. Można zatem powiedzieć, że grupa $\Z_2$ (czyli liczby $0,\, 1$ z dodawaniem modulo 2) to \emph{jedyna} grupa
+    dwuelementowa.
+    \item \points{3} Oznaczmy elementy grupy przez $e,b,c$. Jeśli $bc=b$, to mnożąc od lewej strony tę równość przez element odwrotny do $b$ otrzymalibyśmy $c=e$. Analogicznie $bc$ nie może
+      być równe $c$. Zatem jedyną możliwością jest $bc=e$. Stąd otrzymujemy też $cb=e$. Musimy mieć $b^2=b$ lub $b^2=c$. W pierwszym przypadku mamy $b=e$, więc $b^2=c$. Analogicznie
+      $c^2=b$. Znamy jednoznacznie wyniki mnożenia każdych dwóch elementów tej grupy, jeśli więc mnożenie okaże się łączne, to wiemy, że istnieje dokładnie jedna taka grupa. Biorąc
+      jako przykład $\Z_3$ widzimy, że istnieje \textit{dokładnie} jedna trzyelementowa grupa.
+    \item \points{3} Oznaczmy elementy grupy przez $e,a,b,c$. Bez straty ogólności możemy przyjąć, że $b^2=e$ (parując element z jego elementem odwrotnym widzimy, że któryś musi zostać
+      bez pary). Teraz mamy dwie możliwości:
+      \begin{enumerate}
+        \item $a^2=e$, więc i $c^2=e$. Wówczas $ab$ musi być równe $c$ (czemuś być musi, a elementy $e,a,b$ prowadzą do sprzeczności). Analogicznie znajdujemy pozostałe relacje mnożenia. Taka grupa nazywana jest \textit{grupą Kleina} i może być skonstruowana jako $\Z_2\times \Z_2$, wraz z dodawaniem modulo dwa po współrzędnych.
+        \item $e$ i $b$ to wszystkie elementy $g$ takie, że $g^2=e$, czyli $ac=ca=e$. Zastanówmy się ile wynosi $ba$. Nie może to być $e$, ani $a$ ani $b$. Musi zatem to być $c$.
+        Analogicznie jednoznacznie znajdujemy $ab$, $cb$, $bc$. Tą grupą okazuje się być $\Z_4$.
+      \end{enumerate}
+      Zatem są \textit{dwie} grupy czteroelementowe.
+  \end{enumerate}
+\end{sol}
+
+\section{Topologia}
+\subsection{Przeciwobraz funkcji}
+Niech $f: X\to Y$ będzie funkcją. Definiujemy pojęcia:
+\begin{enumerate}
+  \item \emph{obrazu} podzbioru: jeśli $A\subseteq X$, to
+    $$f(A) := \{y\in Y : \text{istnieje } x\in X \text{ takie, że } f(x)=y\}$$
+  \item \emph{przeciwobrazu} podzbioru: jeśli $B\subseteq Y$, to
+    $$f^{-1}(B):=\{x\in X : f(x)\in B\}$$
+\end{enumerate}
+
+\begin{prob}
+  \emph{To zadanie pokazuje dlaczego później będziemy korzystać z przeciwobrazu.}
+  \points{12} Niech $f:X\to Y$, oraz $A, B\subseteq X$ i $C, D\subseteq Y$. Pokaż, że:
+  \begin{enumerate}
+    \item $f(A\cap B)\subseteq f(A)\cap f(B)$.
+    \item Podaj przykład, dowodzący, że zawierania nie można zastąpić znakiem równości.
+    \item $f(A\cup B)=f(A)\cup f(B)$
+    \item $f^{-1}(C\cap D)=f^{-1}(C)\cap f^{-1}(D)$
+    \item $f^{-1}(C\cup D)=f^{-1}(C)\cup f^{-1}(D)$
+    \item $f^{-1}(Y\setminus C)=X\setminus f^{-1}(C)$
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{2} $f(A\cap B)\subseteq A$ oraz $f(A\cap B)\subseteq B$. Zatem $f(A\cap B)\subseteq A\cap B$
+    \item \points{2} Niech $f: \Z\to \{1\}$. Wówczas jeśli $P$ to liczby parzyste, a $N$ to liczby
+    nieparzyste, mamy $f(P\cap N)=\varnothing\neq \{1\}$
+    \item \points{2} $f^{-1}(C\cap D) = \{x\in X : f(x)\in C\cap D\}$, $f^{-1}(C)\cap f^{-1}(D)=\{x\in X : f(x)\in C\}\cap \{x\in X : f(x)\in D\}= \{x\in X : f(x)\in C\cap D\}$
+    \item \points{2} Analogicznie jak wyżej.
+    \item \points{2} $f^{-1}(Y\setminus C)=\{x\in X : f(x)\notin C\}=X\setminus \{x\in X : f(x)\in C\}=X\setminus f^{-1}(C)$
+  \end{enumerate}
+\end{sol}
+
+\subsection{Przestrzeń topologiczna}
+Niech $X$ będzie zbiorem. Jego \emph{zbiorem potęgowym} $\mathcal P(X)$ nazywamy zbiór wszystkich jego podzbiorów
+\footnote{Jego istnieje gwarantuje aksjomatyka teorii mnogości.}
+: $\mathcal P(X)=\{A: A\subseteq X\}$.
+
+\begin{prob}
+  \points{1} Niech $X$ będzie zbiorem o skończonej liczbie elementów $n$. Ile elementów ma zbiór $\mathcal P(n)$?
+\end{prob}
+\begin{sol}
+  \points{1} Ponumerujmy elementy zbioru liczbami od 1 do $n$. Wówczas możemy skonstruować każdy podzbiór $X$ poprzez wybieranie czy element $i$ ma się znaleźć w danym podzbiorze czy nie.
+  Zatem mamy $2\circ 2\dots\circ 2=2^n$ możliwości skonstruowania podzbiorów i taka też jest moc $\mathcal P(X).$
+\end{sol}
+
+\begin{prob}
+  \points{8} Niech $X$ będzie nieskończonym zbiorem. Pokaż, że następujące zbiory są topologiami na $X$:
+  \begin{enumerate}
+    \item $\mathcal T=\{\varnothing, X\}$ (tak zwana \emph{topologia trywialna})
+    \item $\mathcal T=\mathcal P(X)$ (\emph{topologia dyskretna})
+    \item $\mathcal T=\{\varnothing\}\cup \{X\setminus A : A \text{ jest skończonym podzbiorem } X\}$ (\textit{topologia koskończona
+    \footnote{Chyba... jakoś to nie brzmi}})
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{2} Oczywiście zbiór pusty i cała przestrzeń są otwarte, podobnie też ich dowolne sumy i skończone przecięcia (są to albo cała przestrzeń albo zbiór pusty).
+    \item \points{2} Zbiór pusty i cała przestrzeń są otwarte, dowolna suma podzbiorów $X$ nadal jest podzbiorem $X$ (a więc jest zbiorem otwartym), podobnie skończone przecięcia.
+    \item \points{4} Korzystając z $A=\varnothing$ dowodzimy, że cała przestrzeń jest otwarta; zbiór pusty jest otwarty z definicji tej topologii. Rozważmy teraz zbiory otwarte
+    $U_i, i\in I$ oraz ich dopełnienia $U_i^c=X\setminus U_i, i\in I$. Dopełnienie dowolnej sumy zbiorów $U_i$ to iloczyn dowolnie wielu skończonych $U_i^c$, czyli też zbiór skończony. Pokazuje to, że suma dowolnie wielu zbiorów otwartych też jest zbiorem otwartym. Dopełnienie iloczynu $U_i\cap U_j$ to suma dopełnień $U_i^c\cup U_j^c$, czyli zbiór skończony. Zatem iloczyn dwóch zbiorów otwartych jest zbiorem otwartym.
+  \end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \emph{Zazwyczaj pisząc "przestrzeń topologiczna $\mathbb R$" ma się na myśli $\mathbb R$ wyposażoną w pewną określoną topologię...}
+
+  \points{5} Mówimy, że $A\subseteq \mathbb R$ jest otwarty jeśli dla każdego $x\in A$ istnieje odcinek otwarty $(a_x, b_x)$ taki, że $x\in (a_x, b_x)\subseteq A$.
+  \begin{enumerate}
+    \item Pokaż, że zbiory otwarte według powyższej definicji spełniają wszystkie aksjomaty topologii.
+    \item Pokaż, że każdy zbiór otwarty może być zapisany jako suma pewnej rodziny otwartych odcinków - to znaczy, że jeśli $A$ jest zbiorem otwartym, to istnieją takie odcinki
+    $(a_i,b_i),$ $i\in I$, że:
+    $$A=\bigcup_i ~(a_i, b_i)$$
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item Sprawdzamy po kolei wszystkie aksjomaty:
+      \begin{enumerate}
+        \item \points{1} $\varnothing$ nie ma żadnego punktu, więc wokół każdego da się narysować odcinek; wokół każdej liczby rzeczywistej w $\R$ istnieje odcinek zawarty w $\R$
+        \item \points{1} Rozważmy rodzinę zbiorów $\{X_i : i\in I\}$ i sumę $X$. Rozważmy dowolny punkt $x\in X$. Wówczas istnieje takie $i$, że $x\in X_i$. Zatem da się narysować odcinek
+        wokół $x$ zawarty w $X_i$, a więc i w $X$.
+        \item \points{1} Niech $A$ i $B$ będą otwarte. Rozważmy punkt $x\in A\cap B$. Wówczas istnieją odcinki $(x-a,x+a)\subseteq A$, $(x-b, a+b)\subseteq B$. Odcinek $(x-k, x+k)\subseteq
+        A\cap B$ jest szukanym otoczeniem $x$ dla $k=\min(a,b).$
+      \end{enumerate}
+
+    \item \points{2} Rozważmy dowolny zbiór otwarty $X$ w $\R$. Wokół każdego punktu $x\in X$ istnieje odcinek $O_x$ zawarty w $X$ taki, że $x\in O_x$. Rozważmy sumę
+    odcinków $O_x$ dla $x\in X$. Widzimy, że jest nadzbiorem $X$ (bo zawiera każdy punkt $x\in X$) oraz, że jest podzbiorem $X$ (bo żaden z odcinków nie ma punktów spoza $X$), zatem
+    jest równy $X$.
+  \end{enumerate}
+\end{sol}
+
+\subsection{Funkcje ciągłe}
+Niech $(X, \mathcal T)$ oraz $(Y, \tau)$ będą przestrzeniami topologicznymi. Funkcję $f: X\to Y$ taką, że $f^{-1}(B)\in \mathcal T$ dla każdego $B\in \tau$ nazywamy \emph{funkcją ciągłą} i oznaczamy $f: (X, \mathcal T)\to (Y, \tau)$.
+
+\begin{prob}
+  \points{5} Pokaż, że funkcja identycznościowa $\Id_X: (X, \mathcal T)\to (X, \mathcal T)$ jest ciągła.
+\end{prob}
+\begin{sol}
+  \points{5} Niech $O$ będzie dowolnym zbiorem otwartym. Wówczas przeciwobraz $\Id_X^{-1}(O)=O,$ czyli jest zbiorem otwartym, co pokazuje ciągłość $\Id_X$.
+\end{sol}
+
+\begin{prob}
+  \points{5} Pokaż, że funkcja stała $f: (X, \mathcal T)\to (Y, \tau),~f(x)=c$ jest ciągła.
+\end{prob}
+\begin{sol}
+  \points{5} Niech $O$ będzie zbiorem otwartym w $Y$. Jeśli $c\in O$, to $f^{-1}(O)=X$ (czyli jest to zbiór otwarty). Jeśli $c\in Y\setminus O$, to $f^{-1}(O)=\varnothing$ (czyli
+  jest to zbiór otwarty).
+\end{sol}
+
+\begin{prob}
+  \points{3} Pokaż, że funkcja $f: \mathbb R\to \mathbb R$ dana wzorem $f(x)=x^2$ jest ciągła. Podpowiedź: jak można zapisać każdy zbiór otwarty w $\mathbb R$? Jakie własności ma przeciwobraz?
+\end{prob}
+\begin{sol}
+  \points{3}
+  Każdy zbiór otwarty w $\R$ można zapisać jako sumę przedziałów otwartych. Wiemy też, że przeciwobraz sumy zbiorów to suma przeciwobrazów oraz, że sumy zbiorów otwartych to
+  zbiory otwarte. Zatem wystarczy pokazać, że przeciwobraz każdego otwartego przedziału $\R$ jest zbiorem otwartym.
+
+  Rozważmy zatem przedział $(a,b)$. Jego przeciwobraz to:
+
+  \begin{enumerate}
+    \item $\varnothing$ jeśli $(a,b)=\varnothing$ (czyli gdy $a\ge b$). Jest to zbiór otwarty.
+    \item $\varnothing$ jeśli $b < 0$. Jest to zbiór otwarty.
+    \item $(0, \sqrt b)\cup (-\sqrt b, 0)$ jeśli $a < 0 \le b$. Jest to zbiór otwarty.
+    \item $(\sqrt a, \sqrt b)\cup (-\sqrt b, -\sqrt a)$ jeśli $0 \le a < b$. Jest to zbiór otwarty.
+  \end{enumerate}
+\end{sol}
+
+\subsection{Kategoria $\Top$}
+\begin{prob}
+  \points{5} Pokaż, że przestrzenie topologiczne wraz z funkcjami ciągłymi tworzą kategorię. Nazywamy ją $\Top.$
+\end{prob}
+\begin{sol}
+  \begin{enumerate}
+    \item \points{1} Funkcje ciągłe z $X$ do $Y$ są funkcjami z $X$ do $Y$ o pewnej własności, tworzą zatem zbiór.
+    \item \points{3} Niech $(X_i, \mathcal T_i), i=1,2,3$ będą przestrzeniami topologicznymi oraz niech $f_i: X_i\to X_{i+1}, i=1,2$ będą funkcjami ciągłymi. Rozważmy dowolny zbiór
+    otwarty $O$ w $X_3$. Wówczas $f_2^{-1}(O)$ jest otwarty w $X_2$ (co wynika z ciągłości $f_2$). Z ciągłości $f_1$ otrzymujemy, że zbiór $f_1^{-1}(f_2^{-1}(O))$ jest otwarty w
+    $X_1$, co dowodzi, że funkcja $f_2 \circ f_1$ jest funkcją ciągłą z $X_1$ do $X_3$, zatem mamy działające składanie morfizmów.
+    \item \points{1} Pokazaliśmy już, że identyczności są ciągłe.
+  \end{enumerate}
+\end{sol}
+
+\begin{prob}
+  \points{3} Dlaczego:
+  \begin{enumerate}
+    \item monomorfizmy w $\Top$ to dokładnie ciągłe iniekcje?
+    \item epimorfizmy to dokładnie ciągłe surjekcje?
+    \item izomorfizmy to dokładnie ciągłe bijekcje posiadające ciągłą odwrotność? W tej kategorii nazywamy je \emph{homeomorfizmami}.
+  \end{enumerate}
+\end{prob}
+\begin{sol}
+  \points{3} Wystarczy powtorzyć dowody\footnote{Przyznawany jest jeden punkt za każdy dowód.} dla kategorii $\Set$ pamiętając, że należy zadbać by wprowadzane funkcje były ciągłe (czyli np. wyposażyć
+  zbiór $\{0,1\}$ w topologię trywialną gdy rozważa się epimorfizmy).
+\end{sol}
+\end{document}
