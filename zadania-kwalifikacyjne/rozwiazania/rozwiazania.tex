@@ -250,18 +250,16 @@
 \begin{prob}
   \points{3} Pokaż, że grupy wraz z homomorfizmami tworzą kategorię. Nazywamy ją $\Grp$.
 \end{prob}
-% TODO
 \begin{sol}
-
+ \points{1} Dla dowolnych homomorfizmów $f: F\to G$ i $g: G\to H$, złożenie również jest homomorfizmem, gdyż $(f\circ g)(ab) = f(g(ab))) = f(g(a)g(b)) = f(g(a))f(g(b)) = (f\circ g (a)) (f\circ g(b))$ dla dowolnych $a, b \in F$. \points{1} Składanie funkcji jest łączne \points{1} Morfizm $\text{Id}_G: G \ni g \to g \in G$ spełnia $\text{Id}_G \circ f  = f$ dla wszystkich $f \in \text{Hom}(F, G)$ oraz $g\circ \text{Id}_G  = g$ dla wszystkich $g \in \text{Hom}(G, H)$.
 \end{sol}
 
 
 \begin{prob}
   \points{2} Wykaż, że izomorfizmy w $\Grp$ to dokładnie bijektywne homomorfizmy.
 \end{prob}
-% TODO
 \begin{sol}
-
+ \points{1} Niech $f: G\to H$ będzie dowolnym bijektywnym homomorfizmem. Niech $g: H\ni h\to f^{-1}(h) \in G$. Funkcja $g$ jest dobrze określona, gdyż $f$ jest bijekcją. Mamy $g\circ f = \text{Id}_G$ oraz $f\circ g = \text{Id}_H$. Dla dowolnych $a, b \in H$ zachodzi $g(ab) = g(f(a')f(b')) = g(f(a'b')) = a'b' = g(a)g(b)$, gdzie $a' = g(a), b' = g(b)$, więc $g$ jest morfizmem, a więc także izomorfizmem. \points{1} Niech teraz $f: G\to H$ będzie dowolnym izomorfizmem. Odwracalność daje daje bijektywność, a ponieważ $f$ jest morfizmem jest też homomorfizmem.
 \end{sol}
 
 
