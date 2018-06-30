@@ -8,7 +8,7 @@
     \item istnieje element $e\in G$ taki, że $\manydots$ Będziemy nazywać go \emph{elementem neutralnym}.
     \item dla każdego $g\in G$ istnieje element $g^{-1}\in G$ taki, że $\manydots$. Nazywamy go
       \emph{elementem odwrotnym do $g$}.
-      \item dla dowolnych $f, g, h\in G$ zachodzi równość $\manydots$.
+      \item dla dowolnych $f,\, g,\, h\in G$ zachodzi równość $\manydots$.
     \end{enumerate}
 \end{prob}
 
@@ -20,7 +20,7 @@
 
 \prob{
   Pomyśl o izometriach płaszyczny (przekształceniach zachowujących odległości, jak symetrie, przesunięcia czy obroty). Co jest złożeniem dwóch symetrii? Co jest złożeniem
-  symetrii i przesunięcia? Czy do każdej podanej izometrii umiemy łatwo podać izometrię odwrotną?
+  symetrii i przesunięcia? Czy do każdej takiej izometrii umiemy łatwo podać izometrię odwrotną?
 }
 
 \prob{
@@ -33,43 +33,43 @@ Czasami mamy na zbiorze zadaną \emph{metrykę} $d:X\times X\to \R$ o własnośc
 
 \begin{enumerate}
   \item $d(x,y)=0\Leftrightarrow x=y$
-  \item $d(x,y)=d(y,x)$ dla wszystkich $x,y\in X$
-  \item $d(x,y) \le d(x,k) + d(k, x)$ dla wszystkich $x,y,k\in X$
+  \item $d(x,y)=d(y,x)$ dla wszystkich $x,\, y\in X$
+  \item $d(x,y) \le d(x,k) + d(k, x)$ dla wszystkich $x,\, y,\, k\in X$
 \end{enumerate}
 
 W takim wypadku definiujemy \emph{kulę} o środku w $x$ i promieniu $r>0$:
-$$B(x, r)=\{y\in X : d(x,y) < r\}$$
+$$B(x,\, r)=\{y\in X : d(x,y) < r\}$$
 
 \prob{
   Narysuj kule w przestrzeniach:
 
   \begin{enumerate}
-    \item $X, d(x,y)=1$ dla $x\neq y$
-    \item $\R$, $d(x_1,x_2)=|x_1-x_2|$
-    \item $\R^2$, $d(x_1, y_1, x_2, y_2)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$
-    \item $\R^2, d(x_1, y_1, x_2, y_2) = |x_1-x_2| + |y_1-y_2|$
-    \item $\R^2, d(x_1, y_1, x_2, y_2) = \text{max}(|x_1-x_2|, |y_1-y_2|)$
+    \item $X,~d(x,y)=1$ dla $x\neq y$
+    \item $\R, ~d(x_1,x_2)=|x_1-x_2|$
+    \item $\R^2,~d(x_1, y_1, x_2, y_2)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$
+    \item $\R^2,~d(x_1, y_1, x_2, y_2) = |x_1-x_2| + |y_1-y_2|$
+    \item $\R^2,~d(x_1, y_1, x_2, y_2) = \text{max}(|x_1-x_2|, |y_1-y_2|)$
   \end{enumerate}
 }
 
 \subsection{Przestrzenie topologiczne}
 \emph{Przestrzenią topologiczną} nazywamy parę $(X, \mathcal T)$, gdzie $X$ jest zbiorem, a $\mathcal T$ jest rodziną podzbiorów $X$ o następujących własnościach:
 \begin{enumerate}
-  \item $\varnothing, X\in \mathcal T$
+  \item $\varnothing,\, X\in \mathcal T$
   \item jeśli $A_i\in \mathcal T$ dla $i\in I$, to ich suma też należy do $\mathcal T$: $\bigcup_{i\in I}A_i\in \mathcal T$
-  \item jeśli $A,B\in \mathcal T$, to $A\cap B\in\mathcal T$
+  \item jeśli $A,\, B\in \mathcal T$, to $A\cap B\in\mathcal T$
 \end{enumerate}
 Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami otwartymi}.
 
 
 \begin{prob}
-  Rozważmy przestrzeń metryczną $(X, d)$. Mówimy, że zbiór $A\subseteq X$ jest otwarty jeśli dla każdego $a\in A$ istnieje $r_a>0$ takie, że
-  $$B(a,r_a)\subseteq A.$$
+  Rozważmy przestrzeń metryczną $(X,\, d)$. Mówimy, że zbiór $A\subseteq X$ jest otwarty jeśli dla każdego $a\in A$ istnieje $r_a>0$ takie, że
+  $$B(a,\, r_a)\subseteq A.$$
   Pokaż, że tak zdefiniowane zbiory otwarte rzeczywiście zadają topologię.
 \end{prob}
 
 \begin{prob}
-  Jak wyglądają zbiory otwarte topologii wyznaczonych przez odległość bezwzględną na zbiorach $\R, \Z, \Q$?
+  Jak wyglądają zbiory otwarte topologii wyznaczonych przez odległość bezwzględną na zbiorach $\R,\, \Z,\, \Q$?
 \end{prob}
 
 \begin{example}
@@ -93,7 +93,7 @@ Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami
 
 \section{Kategorie}
 \begin{prob}
-  Pomyśl o zbiorach i funkcjach lub grupach i homeomorfizmach oraz uzupełnij definicję kategorii:
+  Pomyśl o zbiorach i funkcjach lub grupach i homomorfizmach oraz uzupełnij definicję kategorii:
 
   \emph{Kategorią} nazywamy kolekcję obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnieje zbiór $\Hom(A, B)$ \textit{morfizmów} z $A$ do $B$, które można składać symbolem $\circ$. Mają one następujące własności:
   \begin{enumerate}
