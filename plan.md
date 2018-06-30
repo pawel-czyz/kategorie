@@ -38,7 +38,7 @@ Plan warsztatów
     - iloczyn
         * definicja
         * pokazujemy unikalność
-        * pokażemy dla Top (bo szczegół), prosimy dla Set{*} i Grp 
+        * pokażemy dla Top, prosimy dla Set{*} i Grp 
         * produkt nie musi istnieć (kontrgraf)
 
 3. Dzień trzeci:
