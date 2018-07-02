@@ -1,7 +1,7 @@
 \section{Funktor}
 
 
-\emph{Funktory} to przekształcenia między kategoriami. Ściślej, funktor (\emph{kowariantny}) $T: C\to B$ to para funkcji (obie oznaczane $T$). Jedna przekształca obiekty z $B$ na obiekty na $C$, a druga morfizmy z $B$ na morfizmy w $C$, tak żeby
+\emph{Funktory} to przekształcenia między kategoriami. Ściślej, funktor (\emph{kowariantny}) $T: C\to B$ to para "funkcji" (obie oznaczane $T$). Jedna przekształca obiekty z $B$ na obiekty na $C$, a druga morfizmy z $B$ na morfizmy w $C$, tak żeby
 \begin{itemize}
 \item $T(1_b) = 1_{T(b)}$ dla wszystkich obiektów $b$ z $B$
 \item $T(f\  \circ\ g) = T(f)\ \circ\ T(g)$ dla wszystkich morfizmów $f$, $g$ w $B$
@@ -33,3 +33,13 @@ Funktor \emph{kontrawariantny} jest zdefiniowany analogiczne, zmieniamy tylko dr
 }
 
 \section{Grupa fundamentalna}
+\emph{Grupę  fundamentalną} przestrzeni $(X,\ p)$ z $\Top_*$ oznaczamy $\pi(X,\ p)$. Jej elementami są klasy abstrakcji przekształceń:
+$$f:\ \mathbb{S}\ \to\ X\ :\ f(0)\ =\ f(2\pi)\ =\ p$$
+które są \emph{homotopijne}:
+$$f \sim g \iff \exists\ F:\ I \times \mathbb{S}\ \to\ X\ :\ F(0,\ \cdot)\ = f\ \wedge\ F(1,\ \cdot)\ = g$$
+Wyborażamy sobie, że zmieniając pierwszy parametr przeciągamy jedną pętelkę na drugą (patrz tablica).
+Strukturę grupy dodajemy następująco:
+\begin{itemize}
+	\item $\pi(X,\ p)\ \ni\ e\ =\ [x\ \mapsto\ p]$
+	\item $[f]\ +\ [g]\ =\ \bigg[x\ \mapsto\ f(2x)\text{ kiedy }x \in [0,\ ^1/_2]\text{ oraz }g(2x-1)\text{ kiedy }x \in [^1/_2,\ 1]\bigg]$
+\end{itemize}
