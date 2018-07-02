@@ -34,7 +34,7 @@ Funktor \emph{kontrawariantny} jest zdefiniowany analogiczne, zmieniamy tylko dr
 
 \section{Grupa fundamentalna}
 \emph{Grupę  fundamentalną} przestrzeni $(X,\ p)$ z $\Top_*$ oznaczamy $\pi(X,\ p)$. Jej elementami są klasy abstrakcji przekształceń:
-$$f:\ \mathbb{S}\ \to\ X\ :\ f(0)\ =\ f(2\pi)\ =\ p$$
+$$f:\ \mathbb{S}\ \to\ X\ :\ f(0)\ =\  f(2\pi)\ = p$$
 które są \emph{homotopijne}:
 $$f \sim g \iff \exists\ F:\ I \times \mathbb{S}\ \to\ X\ :\ F(0,\ \cdot)\ = f\ \wedge\ F(1,\ \cdot)\ = g$$
 Wyborażamy sobie, że zmieniając pierwszy parametr przeciągamy jedną pętelkę na drugą (patrz tablica).
@@ -43,3 +43,55 @@ Strukturę grupy dodajemy następująco:
 	\item $\pi(X,\ p)\ \ni\ e\ =\ [x\ \mapsto\ p]$
 	\item $[f]\ +\ [g]\ =\ \bigg[x\ \mapsto\ f(2x)\text{ kiedy }x \in [0,\ ^1/_2]\text{ oraz }g(2x-1)\text{ kiedy }x \in [^1/_2,\ 1]\bigg]$
 \end{itemize}
+
+\prob{
+	Sprawdzić, że rzeczywiście mamy dobrze zdefiniowaną grupę.
+}
+
+\prob{
+	Pokazać, że otrzymaliśmy funktor $\pi:\ \Top_*\to \Grp$ 
+}
+
+\prob{
+	Pokazać, że jeżeli istnieje $f:\ I\to X$ takie, że  $f(0)\ = p\ \wedge\ f(1)\ = q$ to $\pi(X,\ p)$ jest homeomorficzne z $\pi(X,\ q)$.
+	W szczególności dla przestrzeni łukowo spójnych nie ma znaczenia jaki punkt wybierzemy, zawsze dostajeniemy tę samą grupę (z dokładnością do homeomorfizmu).
+	W takich przypadkach piszemy po prostu $\pi(X)$.
+}
+
+\prob{
+	Obliczyć $\pi(\mathbb{R}^2)$.
+}
+
+\prob{
+	Obliczyć $\pi(\mathbb{R}^2\setminus \{0\})$.
+}
+
+\prob{
+	Udowodnij, że $\mathbb{R}^2\setminus \{0\}$ nie jest homeomorficzne z $\mathbb{R}^2$.
+}
+
+\section{Funktor spójności}
+Przestrzeni topologiczna $X$ jest \emph{niespójna} jeżeli istnieje taki niepusty podzbiór $U\subset X$ (o niepustym dopełnieniu!) który jest jednocześnie otwarty i domknięty. Przestrzeń topologiczna jest \emph{spójna} kiedy nie jest niespójna.
+\emph{Spójną składową]} nazywamy maksymalny, spójny i niepusty podzbiór $X$.
+
+\prob{
+Pokaż, że jeżeli $A$ jest spójnym podzbiorem $X$, a $U,\ V$ są otwartymi rozłącznymi pozdbiorami $X$, to:
+$$A \subseteq U\cup V \implies A \subseteq U \vee A \subseteq V$$
+}
+
+
+\prob{
+	Pokaż, że spójne składowe tworzą partycję $X$.
+}
+
+\prob{
+	Pokaż, że pod morfizmami obrazy zbiorów spójnych są spójne.
+}
+
+\prob{
+	Skonstruuj funktor przypisujący przestrzeniem topologicznym zbiór ich spójnych składowych. W jaki sposób przekształca morfizmy?
+}
+
+\prob{
+	Pokaż, że $\mathbb{R}$ nie jest homeomorficzne z $\mathbb{R}^2$.
+}
