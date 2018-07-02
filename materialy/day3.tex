@@ -1,0 +1,35 @@
+\section{Funktor}
+
+
+\emph{Funktory} to przekształcenia między kategoriami. Ściślej, funktor (\emph{kowariantny}) $T: C\to B$ to para funkcji (obie oznaczane $T$). Jedna przekształca obiekty z $B$ na obiekty na $C$, a druga morfizmy z $B$ na morfizmy w $C$, tak żeby
+\begin{itemize}
+\item $T(1_b) = 1_{T(b)}$ dla wszystkich obiektów $b$ z $B$
+\item $T(f\  \circ\ g) = T(f)\ \circ\ T(g)$ dla wszystkich morfizmów $f$, $g$ w $B$
+\end{itemize}
+Funktor \emph{kontrawariantny} jest zdefiniowany analogiczne, zmieniamy tylko drugie wymaganie na
+\begin{itemize}
+	\item $T(f\  \circ\ g) = T(g)\ \circ\ T(f)$ dla wszystkich morfizmów $f$, $g$ w $B$
+\end{itemize}
+
+\begin{example}
+	Funktor identycznościowy dla kategorii $B$, to funktor $T:B\to B$ który dla każdego obiektu i morfizmu zwraca go spowrotem.
+\end{example}
+
+\begin{example}
+	Funktor zapominalski dla kategorii $\Top$, to funktor $T:\Top\to \Set$ który dla każdej przestrzeni topologicznej $(X,\  \mathcal T)$ zwraca  $(X)$ i nie zmienia morfizmów.
+\end{example}
+
+\begin{example}
+	Niech $F, G: \Set \to \Set$, to para funktorów $T:\Top\to \Set$ które dla  każdego zbioru $X$ zwracają zbiór potęgowy $P(X)$. $F$ zamienia morfizmy  na branie obrazów, a $G$ na branie przeciwobrazów. To znaczy dla $f:X\to Y$:
+	\begin{itemize}
+		\item 	$F(f):\ P(X)\ \ni\ U\ \to\ f(U)\ \in\ P(Y)$
+		\item 	$G(f):\ P(Y)\ \ni\ U\ \to\ f^{-1}(U)\ \in\ P(X)$
+	\end{itemize}
+
+\end{example}
+
+\prob{
+  Pokaż, że funktory zdefiniowane w przykładach spełniają akjomaty. Rozpoznaj które są funktorami kowariantnymi a który kontrawariantnymi. Czy potrafisz podać jakieś inne funktory?
+}
+
+\section{Grupa fundamentalna}
