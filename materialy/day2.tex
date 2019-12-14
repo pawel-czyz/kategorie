@@ -1,81 +1,67 @@
 % !TEX root = materialy.tex
-\subsection{Epi/mono/izo-morfizmy}
-Wprowadzimy pewne określenia morfizmów. Otóż niech $f:A\to B$ będzie morfizmem.
+\subsection{Epi-, mono- oraz izomorfizmy}
+Wprowadzimy pewne określenia morfizmów. Otóż niech $\morph fAB$ będzie morfizmem.
 
 \begin{enumerate}
-  \item $f$ jest \emph{epimorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': B\to C$ z równości $g\circ f= g'\circ f$ wynika, że $g=g'$.
-  \item $f$ is \emph{monomorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $g, g': X\to A$ z równości $f\circ g= f\circ g'$ wynika, że
-  $g=g'$.
-  \item $f$ jest \emph{izomorfizmem} jeśli istnieje $f':B\to A$ takie, że $f\circ f'=\Id_B$ oraz $f'\circ f=\Id_A$
+  \item $f$ jest \emph{epimorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $\morph{g, g'}BC$ z równości $g\circ f= g'\circ f$ wynika $g=g'$.
+  \item $f$ is \emph{monomorfizmem} jeśli dla dowolnego obiektu $C$ oraz morfizmów $\morph{g, g'}XA$ z równości $f\circ g= f\circ g'$ wynika $g=g'$.
+  \item $f$ jest \emph{izomorfizmem} jeśli istnieje $\morph{f'}BA$ takie, że $f\circ f'=\id B$ oraz $f'\circ f=\id A$
 \end{enumerate}
 
-\prob{
-  Czym są epi/mono/izo-morfizmy w $\Set$?
-}
+\begin{problem}
+  Czym są epi-, mono- oraz izomorfizmy w $\Set$?
+\end{problem}
 
-\prob{
+\begin{problem}
   Scharakteryzuj (nie musi być formalnie) powyższe morfizmy w kategoriach $\Top$ i $\Grp$.
-}
+\end{problem}
 
-\prob{
-  Pokaż, że złożenie epi/mono/izo-morfizmów jest epi/mono/izo-morfizmem.
-}
+\begin{problem}
+  Pokaż, że złożenie epimorfizmów jest epimorfizmem. (Analogicznie dla monomorfizmów i izomorfizmów).
+\end{problem}
 
 \subsection{Podobiekt}
-\textit{Podobiektem} obiektu $A$ będziemy nazywać monomorfizm $g: B\to A$. Rozważając jednak kategorię, w której obiekty są pewnymi zbiorami, a morfizmy funkcjami, możemy
+\textit{Podobiektem} obiektu $A$ będziemy nazywać monomorfizm $\morph gBA$. Rozważając jednak kategorię, w której obiekty są pewnymi zbiorami, a morfizmy funkcjami, możemy
 myśleć o obrazie $g$ (czyli zbiorze z dodatkową strukturą) jako o podobiekcie (np. podobiektem zbioru w kategorii $\Set$ jest podzbiór).
 
-\prob{
+\begin{problem}
   Pokaż, że podobiekt podobiektu jest podobiektem.
-}
+\end{problem}
 
-\prob{
+\begin{problem}
   Scharakteryzuj podobiekty w $\Set,~\Top,~\Grp$. Dlaczego w $\Top$ istnieje kilka topologii jakie można nadać podzbiorowi aby był nadal podobiektem?
-}
+\end{problem}
 
 \subsection{Produkt}
-Rozważmy dwa obiekty $A, B$ jakiejś kategorii. Ich \emph{produktem} będziemy nazywać
-trójkę $(A\times B, \pi_A, \pi_B)$ taką, że:
+Rozważmy dwa obiekty $A, B$ jakiejś kategorii. Ich \emph{produktem} będziemy nazywać trójkę $(A\times B, \pi_A, \pi_B)$ taką, że:
 \begin{itemize}
-  \item $A\times B$ jest obiektem
-  \item $\pi_A: A\times B\to A, \pi_B:A\times B\to B$ to morfizmy
-  \item jeśli weźmiemy dowolny obiekt $X$ oraz morfizmy $f_A: X\to A, f_B: X\to B$ to
-    istnieje \textit{dokładnie jeden} morfizm $f:X\to A\times B$ taki, że diagram \ref{fig:produkt} komutuje (czyli $f_A=\pi_A\circ f$, $f_B=\pi_B\circ f$).
+  \item $A\times B$ jest obiektem,
+  \item $\morph{\pi_A}{A\times B}A,~\morph{\pi_B}{A\times B}B$ to morfizmy,
+  \item jeśli weźmiemy dowolny obiekt $X$ oraz morfizmy $\morph{f_A}XA$ i $\morph {f_B}XB$ to istnieje \textit{dokładnie jeden} morfizm $\morph fX{A\times B}$ taki, że diagram
+
+    \begin{diagram}
+      & X \arrow[rd, "f_B"] \arrow[ld, "f_A", swap] \arrow[d, "f"] &\\
+      A & \arrow[l, "\pi_A", swap] A\times B \arrow[r, "\pi_B"] & B
+    \end{diagram}
+
+  jest przemienny (czyli $f_A=\pi_A\circ f$, $f_B=\pi_B\circ f$).
 \end{itemize}
 
-\begin{figure}
-  \centering
-  \begin{tikzcd}
-    & X \arrow[rd, "f_B"] \arrow[ld, "f_A"] \arrow[d, "f"] &\\
-    A & \arrow[l, "\pi_A"] A\times B \arrow[r, "\pi_B"] & B
-  \end{tikzcd}
-
-  \caption{Produkt - definicja}
-  \label{fig:produkt}
-\end{figure}
-
-\begin{prob}
+\begin{problem}
   Pokaż, że produkt, jeśli istnieje, jest unikatowy z dokładnością do izomorfizmu.
 
-  Podpowiedź: niech $(\tilde{A\times B}, \tilde \pi_A, \tilde \pi_B)$ będzie drugim produktem. Wtedy diagram 2 komutuje.
-\end{prob}
+  Podpowiedź: niech $(P, p_A, p_B)$ będzie drugim produktem. Przeanalizuj diagram
+  \begin{diagram}
+  & A\times B \arrow[rd, "\pi_B"] \arrow[ld, "\pi_A", swap] \arrow[d, "f"] &\\
+  A & \arrow[l, "p_A", swap] P \arrow[r, "p_B"] \arrow[d, "g"] & B\\
+  & A\times B \arrow[ru, "\pi_B", swap] \arrow[lu, "\pi_A"] &
+  \end{diagram}
+\end{problem}
 
-\begin{figure}
-  \centering
-  \begin{tikzcd}
-    & A\times B \arrow[rd, "\pi_B"] \arrow[ld, "\pi_A"] \arrow[d, "f"] &\\
-    A & \arrow[l, "\tilde \pi_A"] A\tilde \times B \arrow[r, "\tilde \pi_B"] \arrow[d, "g"] & B\\
-    & A\times B \arrow[ru, "\pi_B"] \arrow[lu, "\pi_A"] &
-  \end{tikzcd}
-
-  \caption{Produkt - unikatowość}
-  \label{fig:produkt}
-\end{figure}
-
-\prob{
+\begin{problem}
   Czym jest produkt w $\Set$ i $\Grp$? W jaki sposób skonstruować go w $\Top$?
-}
+\end{problem}
 
-\prob{
+\begin{problem}
   Czy produkt zawsze musi istnieć?
-}
+\end{problem}

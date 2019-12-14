@@ -1,114 +1,130 @@
 \section{Grupy}
 
-\begin{prob}
-  Pomyśl o liczbach całkowitych i dodawaniu lub o permutacjach zbioru ${0,1,2}$ i składaniu funkcji oraz uzupełnij definicję grupy:
+\begin{problem}
+  Pomyśl o liczbach całkowitych i dodawaniu lub o permutacjach zbioru $\{0,1,2\}$ i składaniu funkcji oraz uzupełnij definicję grupy:
 
-  \emph{Grupa} to para $(G, *)$, gdzie $G$ jest zbiorem, a funkcja $*: G\times G\to G$ (będziemy pisać $g*h$ lub $gh$ zamiast $*(g,h)$) ma następujące własności:
+  \emph{Grupa} to para $(G, *)$, gdzie $G$ jest zbiorem, a funkcja $\morph{*}{G\times G}{G}$ (będziemy pisać $g*h$ lub $gh$ zamiast $*(g,h)$) ma następujące własności:
   \begin{enumerate}
-    \item istnieje element $e\in G$ taki, że $\manydots$ Będziemy nazywać go \emph{elementem neutralnym}.
+    \item istnieje element $e\in G$ taki, że $\manydots$ Będziemy nazywać go \emph{elementem neutralnym},
     \item dla każdego $g\in G$ istnieje element $g^{-1}\in G$ taki, że $\manydots$. Nazywamy go
       \emph{elementem odwrotnym do $g$}.
       \item dla dowolnych $f,\, g,\, h\in G$ zachodzi równość $\manydots$.
     \end{enumerate}
-\end{prob}
+\end{problem}
 
 \vspace{-1cm}
 
-\prob{
+\begin{problem}
   Ile istnieje grup czteroelementowych?\footnote{Z dokładnością do izomorfizmu. Heurystycznie chodzi o grupy, które mają taką samą strukturę, np. $\Z$ oraz $2\Z$ wyglądają dokładnie tak samo, poza tym, że mają inaczej nazwane elementy.}
-}
+\end{problem}
 
-\prob{
+\begin{problem}
   Pomyśl o izometriach płaszyczny (przekształceniach zachowujących odległości, jak symetrie, przesunięcia czy obroty). Co jest złożeniem dwóch symetrii? Co jest złożeniem
-  symetrii i przesunięcia? Czy do każdej takiej izometrii umiemy łatwo podać izometrię odwrotną?
-}
+symetrii i przesunięcia? Czy do każdej takiej izometrii umiemy łatwo podać izometrię odwrotną?
+\end{problem}
 
-\prob{
-  Pokaż, że każda grupa izomorficzna jest do grupy permutacji jakiegoś zbioru.
-}
+\begin{problem}
+    Pokaż, że każda grupa izomorficzna jest do grupy permutacji jakiegoś zbioru.
+\end{problem}
 
 \section{Topologia}
 \subsection{Przestrzenie metryczne}
-Czasami mamy na zbiorze zadaną \emph{metrykę} $d:X\times X\to \R$ o własnościach:
+Czasami mamy na zbiorze zadaną \emph{metrykę} $\morph{d}{X\times X}{X}$ o własnościach:
 
 \begin{enumerate}
-  \item $d(x,y)=0\Leftrightarrow x=y$
-  \item $d(x,y)=d(y,x)$ dla wszystkich $x,\, y\in X$
-  \item $d(x,y) \le d(x,k) + d(k, x)$ dla wszystkich $x,\, y,\, k\in X$
+  \item $d(x,y)=0\Leftrightarrow x=y$,
+  \item $d(x,y)=d(y,x)$ dla wszystkich $x,\, y\in X$,
+  \item $d(x,y) \le d(x,k) + d(k, x)$ dla wszystkich $x,\, y,\, k\in X$.
 \end{enumerate}
 
 W takim wypadku definiujemy \emph{kulę} o środku w $x$ i promieniu $r>0$:
-$$B(x,\, r)=\{y\in X : d(x,y) < r\}$$
+\[
+  B(x,\, r)=\{y\in X : d(x,y) < r\}
+\]
 
-\prob{
-  Narysuj kule w przestrzeniach:
+\begin{problem}
+  Narysuj kulę $B(0, 1)$ w następujących przestrzeniach:
 
   \begin{enumerate}
-    \item $X,~d(x,y)=1$ dla $x\neq y$
-    \item $\R, ~d(x_1,x_2)=|x_1-x_2|$
-    \item $\R^2,~d(x_1, y_1, x_2, y_2)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$
-    \item $\R^2,~d(x_1, y_1, x_2, y_2) = |x_1-x_2| + |y_1-y_2|$
-    \item $\R^2,~d(x_1, y_1, x_2, y_2) = \text{max}(|x_1-x_2|, |y_1-y_2|)$
+    \item $\R, ~d(x_1,x_2)=|x_1-x_2|$,
+    \item $\R^2,~d(x_1, y_1, x_2, y_2)=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}$,
+    \item $\R^2,~d(x_1, y_1, x_2, y_2) = |x_1-x_2| + |y_1-y_2|$,
+    \item $\R^2,~d(x_1, y_1, x_2, y_2) = \text{max}(|x_1-x_2|, |y_1-y_2|)$.
   \end{enumerate}
-}
+\end{problem}
+
+\begin{problem}
+  Niech $X$ będzie dowolnym zbiorem. Definiujemy \emph{metrykę dyskretną}
+  \[
+    d(x, y) = \begin{cases}
+                0 & \text{dla }x = y\\
+                1 & \text{dla }x\neq y
+            \end{cases}
+  \]
+  Sprawdź, że rzeczywiście jest to metryka. Jak wyglądają kule o różnych promieniach w tej przestrzeni?
+\end{problem}
+
 
 \subsection{Przestrzenie topologiczne}
-\emph{Przestrzenią topologiczną} nazywamy parę $(X, \mathcal T)$, gdzie $X$ jest zbiorem, a $\mathcal T$ jest rodziną podzbiorów $X$ o następujących własnościach:
+\emph{Przestrzenią topologiczną} nazywamy parę $(X, \mathcal T)$, gdzie $X$ jest zbiorem, a $\mathcal T$ jest rodziną podzbiorów $X$ o~następujących własnościach:
 \begin{enumerate}
-  \item $\varnothing,\, X\in \mathcal T$
-  \item jeśli $A_i\in \mathcal T$ dla $i\in I$, to ich suma też należy do $\mathcal T$: $\bigcup_{i\in I}A_i\in \mathcal T$
-  \item jeśli $A,\, B\in \mathcal T$, to $A\cap B\in\mathcal T$
+  \item $\varnothing,\, X\in \mathcal T$,
+  \item jeśli $A_i\in \mathcal T$ dla $i\in I$, to ich suma też należy do $\mathcal T$:
+    \[\bigcup_{i\in I}A_i\in \mathcal T\]
+  \item jeśli $A,\, B\in \mathcal T$, to $A\cap B\in\mathcal T$.
 \end{enumerate}
-Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy - \emph{zbiorami otwartymi}.
+Zbiór $\mathcal T$ nazywamy \emph{topologią}, a jego elementy -- \emph{zbiorami otwartymi}.
 
 
-\begin{prob}
+\begin{problem}
   Rozważmy przestrzeń metryczną $(X,\, d)$. Mówimy, że zbiór $A\subseteq X$ jest otwarty jeśli dla każdego $a\in A$ istnieje $r_a>0$ takie, że
   $$B(a,\, r_a)\subseteq A.$$
   Pokaż, że tak zdefiniowane zbiory otwarte rzeczywiście zadają topologię.
-\end{prob}
+\end{problem}
 
-\begin{prob}
+\begin{problem}
   Jak wyglądają zbiory otwarte topologii wyznaczonych przez odległość bezwzględną na zbiorach $\R,\, \Z,\, \Q$?
-\end{prob}
+\end{problem}
 
 \begin{example}
-  Topologia "rzeka", prosta z dwoma początkami.
+  Topologia ,,rzeka", prosta z dwoma początkami.
 \end{example}
 
-\prob{
-  Ile jest topologii na zbiorze $\{0,1,2\}$? (Z dokładnością do homeomorfizmu.)
-}
+\begin{problem}
+  Ile jest topologii na zbiorze $\{0,1,2\}$? (Z dokładnością do homeomorfizmu).
+\end{problem}
 
-\prob{
+\begin{problem}
   Niech $X$ będzie dowolnym zbiorem, a $\mathcal T$ będzie rodziną zawierającą zbiór pusty oraz dopełnienia wszystkich skończonych podzbiorów $X$. Pokaż, że $\mathcal T$ jest topologią.
-}
+\end{problem}
 
-\prob{
+\begin{problem}
   Rozważmy rodzinę zespolonych wielomianów
-  $$S=\{w_i : i\in I\},~w_i: \C \ni z \mapsto a_nz^n+\dots+a_1z+a_0\in \C.$$
-  Afiniczną rozmaitością algebraiczną $V(S)$ będziemy oznaczać zbiór liczb zespolonych, na których zerują się wszystkie wielomiany rodziny $S$.
+  \[
+    S=\{w_i : i\in I\},~w_i: \C \ni z \mapsto a_nz^n+\dots+a_1z+a_0\in \C.
+  \]
+  Afiniczną rozmaitością algebraiczną $\Vanish(S)$ będziemy oznaczać zbiór liczb zespolonych, na których zerują się wszystkie wielomiany rodziny $S$.
   Pokaż, że dopełnienia wszystkich afinicznych rozmaitości algebraicznych tworzą topologię na $\C$ (nazywamy ją topologią Zariskiego).
-}
+\end{problem}
 
 \section{Kategorie}
-\begin{prob}
+\begin{problem}
   Pomyśl o zbiorach i funkcjach lub grupach i homomorfizmach oraz uzupełnij definicję kategorii:
 
   \emph{Kategorią} nazywamy kolekcję obiektów $A, B, C\dots$, taką, że dla każdych dwóch obiektów $A, B$ istnieje zbiór $\Hom(A, B)$ \textit{morfizmów} z $A$ do $B$, które można składać symbolem $\circ$. Mają one następujące własności:
   \begin{enumerate}
-    \item Jeśli $f:A\to B$ oraz $g: B\to C$, to $\manydots$.
-    \item Dla dowolnych trzech morfizmów $f:A\to B, g:B\to C, h:C\to D$ mamy równość: $\manydots$
-    \item Dla każdego obiektu $X$ istnieje morfizm $\Id_X: X\to X$, taki że $\manydots$.
+    \item jeśli $\morph fAB$ oraz $\morph gBC$, to $\manydots$,
+    \item dla dowolnych trzech morfizmów $\morph fAB, \morph gBC, \morph hCD$ zachodzi równość $\manydots$,
+    \item dla każdego obiektu $X$ istnieje morfizm $\morph{\id X}XX$, taki że $\manydots$.
 \end{enumerate}
-\end{prob}
+\end{problem}
 
 \vspace{-1cm}
 
-\prob{
+\begin{problem}
   Pokaż, że $\Set,~\Top,~\Grp,~\Set_*,~\Top_*$ są kategoriami.
-}
+\end{problem}
 
-\example{
-  Kategoria z trzema morfizmami.
-}
+\begin{example}
+  Kategoria $\textbf 2$ z trzema morfizmami.
+\end{example}

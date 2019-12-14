@@ -1,0 +1,127 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{customaths}[2019/12/14 CustoMaths]
+
+%%%%% Needed packages %%%%%%
+
+\RequirePackage{mathtools}
+\RequirePackage{amsthm}
+\RequirePackage{amssymb}
+\RequirePackage{physics}
+
+\RequirePackage{tikz-cd}
+
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{hyperref}
+
+%%%%% Own environments defined for each language %%%%%
+%     Currently supported: English, Polish
+
+% Environment names
+\newcommand{\wordCorollary}{Corollary}
+\newcommand{\wordCaution}{Caution}
+\newcommand{\wordDefinition}{Definition}
+\newcommand{\wordExample}{Example}
+\newcommand{\wordExercise}{Exercise}
+\newcommand{\wordFact}{Fact}
+\newcommand{\wordIdea}{Idea}
+\newcommand{\wordLemma}{Lemma}
+\newcommand{\wordNotation}{Notation}
+\newcommand{\wordProblem}{Problem}
+\newcommand{\wordProof}{Proof}
+\newcommand{\wordProposition}{Proposition}
+\newcommand{\wordRemark}{Remark}
+\newcommand{\wordTheorem}{Theorem}
+
+% Optionally use Polish
+\DeclareOption{polski}{
+    \renewcommand{\wordCorollary}{Wniosek}
+    \renewcommand{\wordCaution}{Ostrzeżenie}
+    \renewcommand{\wordDefinition}{Definicja}
+    \renewcommand{\wordExample}{Przykład}
+    \renewcommand{\wordExercise}{Ćwiczenie}
+    \renewcommand{\wordFact}{Fakt}
+    \renewcommand{\wordIdea}{Pomysł}
+    \renewcommand{\wordLemma}{Lemat}
+    \renewcommand{\wordNotation}{Oznaczenie}
+    \renewcommand{\wordProblem}{Zadanie}
+    \renewcommand{\wordProof}{Dowód}
+    \renewcommand{\wordProposition}{Stwiedzenie}
+    \renewcommand{\wordRemark}{Uwaga}
+    \renewcommand{\wordTheorem}{Twierdzenie}
+}
+
+% Here is the place for other languages
+% ...
+
+%%%%% Numbering %%%%%
+\newcommand{\numberBy}{section}
+
+\DeclareOption{chapter}{
+    \renewcommand{\numberBy}{chapter}
+}
+
+\DeclareOption*{\PackageWarning{customaths}{Unknown ‘\CurrentOption’}}
+\ProcessOptions\relax
+
+% Environment definitions
+\theoremstyle{definition}
+\newtheorem{theorem}{\wordTheorem}%[\numberBy]
+\newtheorem{corollary}[theorem]{\wordCorollary}
+\newtheorem{caution}[theorem]{\wordCaution}
+\newtheorem{definition}[theorem]{\wordDefinition}
+\newtheorem{example}[theorem]{\wordExample}
+\newtheorem{exercise}[theorem]{\wordExercise}
+\newtheorem{fact}[theorem]{\wordFact}
+\newtheorem{idea}[theorem]{\wordIdea}
+\newtheorem{lemma}[theorem]{\wordLemma}
+\newtheorem{notation}[theorem]{\wordNotation}
+\newtheorem{problem}{\wordProblem}
+% \newtheorem{proof}[theorem]{\wordProof}
+\newtheorem{proposition}[theorem]{\wordProposition}
+\newtheorem{remark}[theorem]{\wordRemark}
+
+%%%%% Useful maths commands that are not already included in mathtools, physics etc. %%%%%
+% Commutative diagrams
+\newenvironment{diagram}
+    {
+    \begin{center}
+        \begin{tikzcd}
+    }
+    {
+        \end{tikzcd}
+    \end{center}
+    }
+
+\newcommand{\morph}[3]{#1\colon #2\to #3}  % Morphism (function, homomorphism, arrow). `\morph fAB' gives f: A\to B
+\newcommand{\morpharr}[3]{#2 \xrightarrow{#1} #3}  % Morphism, overline. `\morpharr fAB` gives A -f-> B
+\newcommand{\isomorph}[3]{#1: #2 \xrightarrow{~\simeq~} #3}  % Isomorphism.
+\newcommand{\id}[1]{\mathrm{id}_{#1}} % Identity arrow
+
+\DeclareMathOperator\End{End}
+\DeclareMathOperator\Aut{Aut}
+\DeclareMathOperator\Hom{Hom}
+
+\newcommand{\Homset}[3][]{\Hom_{#1}(#2, #3)} % Zbiór strzałek
+
+% \newcommand{\norm}[1]{||#1||}
+\newcommand{\closedball}[1]{\overline{B^{#1}}}
+
+
+% Common rings
+\newcommand{\Reals}{\mathbb R}
+\newcommand{\Complex}{\mathbb C}
+\newcommand{\Integers}{\mathbb Z}
+\newcommand{\Rationals}{\mathbb Q}
+
+% Own styling of Greek letters
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+
+% Algebraic geometry
+\DeclareMathOperator\Vanish{\mathbb V}
+\DeclareMathOperator\Ideal{\mathbb I}
+
+
+\newcommand{\TODO}[1][]{\color{red} TODO #1}

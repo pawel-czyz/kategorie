@@ -3,18 +3,25 @@
 \usepackage{graphicx}
 \usepackage[bottom]{footmisc}
 \usepackage{listings}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage[polski]{customaths}
 \usepackage{polski}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{mathtools}
-\usepackage{tikz-cd}
 
 \usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
-\usepackage[subtle]{savetrees} % moderate, extreme
+% \usepackage[subtle]{savetrees} % moderate, extreme
 
-\input{owncommands}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+\newcommand{\Set}{\textbf{Set}}
+\newcommand{\Setstar}{\textbf{Set}_*}
+\newcommand{\Top}{\textbf{Top}}
+\newcommand{\Grp}{\textbf{Grp}}
+
+\newcommand{\manydots}{\dots\dots\dots\dots}
 
 \begin{document}
 \include{day1}

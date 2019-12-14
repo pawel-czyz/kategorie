@@ -1,101 +1,122 @@
+% !TEX root = materialy.tex
 \section{Funktor}
-
-
-\emph{Funktory} to przekształcenia między kategoriami. Ściślej, funktor (\emph{kowariantny}) $T: C\to B$ to para "funkcji" (obie oznaczane $T$). Jedna przekształca obiekty z $B$ na obiekty na $C$, a druga morfizmy z $B$ na morfizmy w $C$, tak żeby
+\emph{Funktory} to przekształcenia między kategoriami. Ściślej, funktor (\emph{kowariantny}) $\morph T{\mathcal B}{\mathcal C}$ to para ,,funkcji'' (obie oznaczane $T$). Jedna przekształca obiekty z $\mathcal B$ na obiekty na $\mathcal C$, a druga morfizmy z $\mathcal B$ na morfizmy w $\mathcal C$, tak żeby
 \begin{itemize}
-\item $T(1_b) = 1_{T(b)}$ dla wszystkich obiektów $b$ z $B$
-\item $T(f\  \circ\ g) = T(f)\ \circ\ T(g)$ dla wszystkich morfizmów $f$, $g$ w $B$
+\item $T(\id B) = \id {T(B)}$ dla wszystkich obiektów $B$ z $\mathcal B$,
+\item $T(f\circ\ g) = T(f) \circ\ T(g)$ dla wszystkich morfizmów $f$, $g$ w $B$ (dla których złożenie $f\circ g$ ma sens).
 \end{itemize}
 Funktor \emph{kontrawariantny} jest zdefiniowany analogiczne, zmieniamy tylko drugie wymaganie na
 \begin{itemize}
-	\item $T(f\  \circ\ g) = T(g)\ \circ\ T(f)$ dla wszystkich morfizmów $f$, $g$ w $B$
+	\item $T(f\  \circ\ g) = T(g)\ \circ\ T(f)$ dla wszystkich morfizmów $f$, $g$ w $\mathcal B$ (dla których złożenie $f\circ g$ ma sens).
 \end{itemize}
 
 \begin{example}
-	Funktor identycznościowy dla kategorii $B$, to funktor $T:B\to B$ który dla każdego obiektu i morfizmu zwraca go spowrotem.
+	Funktor identycznościowy dla kategorii $\mathcal B$, to funktor $\morph T{\mathcal B}{\mathcal B}$, który dla każdego obiektu i morfizmu zwraca go spowrotem.
 \end{example}
 
 \begin{example}
-	Funktor zapominalski dla kategorii $\Top$, to funktor $T:\Top\to \Set$ który dla każdej przestrzeni topologicznej $(X,\  \mathcal T)$ zwraca  $(X)$ i nie zmienia morfizmów.
+	Funktor zapominalski dla kategorii $\Top$, to funktor $\morph T\Top\Set$ który dla każdej przestrzeni topologicznej $(X,\  \mathcal T)$ zwraca  $X$ i nie zmienia morfizmów. (Każda funkcja ciągła jest przecież funkcją).
 \end{example}
 
 \begin{example}
-	Niech $F, G: \Set \to \Set$, to para funktorów $T:\Top\to \Set$ które dla  każdego zbioru $X$ zwracają zbiór potęgowy $P(X)$. $F$ zamienia morfizmy  na branie obrazów, a $G$ na branie przeciwobrazów. To znaczy dla $f:X\to Y$:
+	Zdefiniujemy funktory $\morph{F, G}\Set\Set$ w następujący sposób: dla każdego zbioru $X$ obydwa zwracają zbiór potęgowy $P(X)$. $F$ zamienia morfizmy na branie obrazów, a $G$ na branie przeciwobrazów. To znaczy dla $\morph fXY$:
 	\begin{itemize}
-		\item 	$F(f):\ P(X)\ \ni\ U\ \to\ f(U)\ \in\ P(Y)$
-		\item 	$G(f):\ P(Y)\ \ni\ U\ \to\ f^{-1}(U)\ \in\ P(X)$
+		\item $F(f):\ P(X)\ \ni\ U\ \to\ f(U)\ \in\ P(Y)$
+		\item $G(f):\ P(Y)\ \ni\ U\ \to\ f^{-1}(U)\ \in\ P(X)$
 	\end{itemize}
-
 \end{example}
 
-\prob{
-  Pokaż, że funktory zdefiniowane w przykładach spełniają akjomaty. Rozpoznaj które są funktorami kowariantnymi a który kontrawariantnymi. Czy potrafisz podać jakieś inne funktory?
-}
+\begin{problem}
+  Pokaż, że funktory zdefiniowane w przykładach spełniają aksjomaty. Rozpoznaj, który jest funktorem kowariantnym, a który kontrawariantny.
+\end{problem}
+
+\begin{problem}
+	Czy potrafisz podać inne przykłady funktorów?
+\end{problem}
 
 \section{Grupa fundamentalna}
-\emph{Grupę  fundamentalną} przestrzeni $(X,\ p)$ z $\Top_*$ oznaczamy $\pi(X,\ p)$. Jej elementami są klasy abstrakcji przekształceń:
-$$f:\ \mathbb{S}\ \to\ X\ :\ f(0)\ =\  f(2\pi)\ = p$$
-które są \emph{homotopijne}:
-$$f \sim g \iff \exists\ F:\ I \times \mathbb{S}\ \to\ X\ :\ F(0,\ \cdot)\ = f\ \wedge\ F(1,\ \cdot)\ = g$$
-Wyborażamy sobie, że zmieniając pierwszy parametr przeciągamy jedną pętelkę na drugą (patrz tablica).
-Strukturę grupy dodajemy następująco:
-\begin{itemize}
-	\item $\pi(X,\ p)\ \ni\ e\ =\ [x\ \mapsto\ p]$
-	\item $[f]\ *\ [g]\ =\ \bigg[x\ \mapsto\ f(2x)\text{ kiedy }x \in [0,\ ^1/_2]\text{ oraz }g(2x-1)\text{ kiedy }x \in [^1/_2,\ 1]\bigg]$
-\end{itemize}
+\emph{Grupę  fundamentalną} przestrzeni $(X, p)$ z $\Top_*$ oznaczamy $\pi(X, p)$. Jej elementami są klasy abstrakcji przekształceń:
+\[
+	\morph f{\mathbb S}X
+\]
+spełniające warunek $f(1, 0) = p$, które są \emph{homotopijne} -- $f \sim g$ jeśli istnieje funkcja ciągła
+\[
+	\morph{F}{I \times \mathbb{S}} X
+\]
+taka, że $\ F(0,\ \cdot)\ = f$ i $F(1,\ \cdot)\ = g$.
+(Wyobrażamy sobie, że zmieniając pierwszy parametr przeciągamy jedną pętelkę na drugą -- spójrz na tablicę).
 
-\prob{
-	Sprawdzić, że rzeczywiście mamy dobrze zdefiniowaną grupę.
-}
+Określamy \emph{mnożenie pętelek} $f$ i $g$ jako
+\[
+	(f*g)(x) = \begin{cases}
+								f(2x) & \text{dla } x\in [0, 1/2]\\
+								g(2x-1) & \text{dla } x\in [1/2, 1]
+					 	\end{cases}
+\]
+(Jedziemy po pętelce $f$, a potem po pętelce $g$. Musimy poruszać się dwa razy szybciej niż zwykle).
 
-\prob{
-	Pokazać, że otrzymaliśmy funktor $\pi:\ \Top_*\to \Grp$ 
-}
+\begin{problem}
+	Pokaż, że mnożenie klas abstrakcji jest dobrze określone: $[f * g] = [f' * g']$ jeśli $[f]=[f']$ oraz $[g]=[g']$.
 
-\prob{
-	Pokazać, że jeżeli istnieje $f:\ I\to X$ takie, że  $f(0)\ = p\ \wedge\ f(1)\ = q$ to $\pi(X,\ p)$ jest homeomorficzne z $\pi(X,\ q)$.
-	W szczególności dla przestrzeni łukowo spójnych nie ma znaczenia jaki punkt wybierzemy, zawsze dostajeniemy tę samą grupę (z dokładnością do homeomorfizmu).
+	Następnie pokaż, że klasa abstrakcji funkcji stałej $c(x)=p$ jest identycznością. Pokazując łączność mnożenia oraz istnienie odwrotności zauważ, że otrzymaliśmy strukturę grupy.
+\end{problem}
+
+\begin{problem}
+	Pokaż, że otrzymaliśmy funktor kowariantny $\morph{\pi}{\Top_*}\Grp$. (W jaki sposób działa na morfizmach?)
+\end{problem}
+
+\begin{problem}
+	Pokaż, że jeżeli istnieje $\morph fIX$ takie, że  $f(0)= p$ oraz $f(1)\ = q$ to $\pi(X,\ p)$ jest izomorficzne z $\pi(X,\ q)$.
+\end{problem}
+
+\begin{remark}
+	W szczególności dla przestrzeni łukowo spójnych nie ma znaczenia jaki punkt wybierzemy, zawsze dostajeniemy ,,tę samą'' grupę (z dokładnością do izomorfizmu).
 	W takich przypadkach piszemy po prostu $\pi(X)$.
-}
+\end{remark}
 
 \begin{example}
 	Obliczenia dla $\pi(\mathbb{R})$ i $\pi(\mathbb{S})$ (tablica).
 \end{example}
 
-\prob{
-	Obliczyć $\pi(\mathbb{R}^2)$.
-}
+\begin{problem}
+	Obliczyć $\pi(\mathbb R^n)$ dla wszystkich $n\ge 0$.
+\end{problem}
 
-\prob{
-	Obliczyć $\pi(\mathbb{R}^2\setminus \{0\})$.
-}
+\begin{problem}
+	Obliczyć $\pi(\mathbb R^2\setminus \{0\})$.
+\end{problem}
 
-\prob{
+\begin{problem}
 	Udowodnij, że $\mathbb{R}^2\setminus \{0\}$ nie jest homeomorficzne z $\mathbb{R}^2$.
-}
+\end{problem}
+
+\begin{remark}
+	Przy pomocy analogicznych funktorów $\pi$ da się pokazać, że sfery $\mathbb S^n$ i $\mathbb S^m$ nie są homeomorficzne dla $n\neq m$. (Analogicznie dla przestrzeni Euklidesowych $\mathbb R^n$).
+\end{remark}
 
 \section{Funktor spójności}
-Przestrzeni topologiczna $X$ jest \emph{niespójna} jeżeli istnieje taki niepusty podzbiór $U\subset X$ (o niepustym dopełnieniu!) który jest jednocześnie otwarty i domknięty. Przestrzeń topologiczna jest \emph{spójna} kiedy nie jest niespójna.
-\emph{Spójną składową]} nazywamy maksymalny, spójny i niepusty podzbiór $X$.
 
-\prob{
+Przestrzeni topologiczna $X$ jest \emph{niespójna} jeżeli istnieje niepusty i właściwy ($U\neq X$ i $U\neq \varnothing$) podzbiór $U\subset X$ taki, że jest jednocześnie otwarty i domknięty. Przestrzeń topologiczna jest \emph{spójna} kiedy nie jest niespójna.
+\emph{Spójną składową]} nazywamy maksymalny (w sensie zawierania), spójny i niepusty podzbiór $X$.
+
+\begin{problem}
 Pokaż, że jeżeli $A$ jest spójnym podzbiorem $X$, a $U,\ V$ są otwartymi rozłącznymi pozdbiorami $X$, to:
 $$A \subseteq U\cup V \implies A \subseteq U \vee A \subseteq V$$
-}
+\end{problem}
 
 
-\prob{
+\begin{problem}
 	Pokaż, że spójne składowe tworzą partycję $X$.
-}
+\end{problem}
 
-\prob{
+\begin{problem}
 	Pokaż, że pod morfizmami obrazy zbiorów spójnych są spójne.
-}
+\end{problem}
 
-\prob{
+\begin{problem}
 	Skonstruuj funktor przypisujący przestrzeniem topologicznym zbiór ich spójnych składowych. W jaki sposób przekształca morfizmy?
-}
+\end{problem}
 
-\prob{
+\begin{problem}
 	Pokaż, że $\mathbb{R}$ nie jest homeomorficzne z $\mathbb{R}^2$.
-}
+\end{problem}
